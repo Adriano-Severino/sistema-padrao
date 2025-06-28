@@ -1,0 +1,15 @@
+[biblioteca]
+nome = "Sistema"
+versao = "1.0.0"
+descricao = "Biblioteca padrão da linguagem portuguesa"
+autor = "Adriano Severino"
+
+[modulos]
+io = ["arquivo", "diretorio", "leitor"]
+colecoes = ["lista", "dicionario", "fila"]
+rede = ["http", "socket"]
+texto = ["json", "regex"]
+data = ["data", "horario"]
+
+[dependencias]
+# Nenhuma dependência externa por enquanto
