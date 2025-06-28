@@ -1,0 +1,15 @@
+espaco Sistema.IO {
+    publico classe Arquivo {
+        publico static texto LerTexto(texto caminho) {
+            // implementação
+        }
+        
+        publico static vazio EscreverTexto(texto caminho, texto conteudo) {
+            // implementação
+        }
+        
+        publico static booleano Existe(texto caminho) {
+            // implementação
+        }
+    }
+}
