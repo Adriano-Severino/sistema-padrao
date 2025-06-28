@@ -1,15 +1,72 @@
-espaco Sistema.IO {
-    publico classe Arquivo {
-        publico static texto LerTexto(texto caminho) {
-            // implementação
+espaco Sistema.IO 
+{
+    publico estática classe Arquivo 
+    {
+        // Ler todo o conteúdo de um arquivo como texto
+        publico estática texto LerTexto(texto caminho) 
+        {
+            // Implementação nativa que será mapeada para File.ReadAllText
+            retorne nativo_ler_arquivo(caminho);
         }
         
-        publico static vazio EscreverTexto(texto caminho, texto conteudo) {
-            // implementação
+        // Escrever texto em um arquivo
+        publico estática vazio EscreverTexto(texto caminho, texto conteudo) 
+        {
+            nativo_escrever_arquivo(caminho, conteudo);
         }
         
-        publico static booleano Existe(texto caminho) {
-            // implementação
+        // Adicionar texto ao final de um arquivo
+        publico estática vazio AdicionarTexto(texto caminho, texto conteudo) 
+        {
+            nativo_adicionar_arquivo(caminho, conteudo);
+        }
+        
+        // Verificar se arquivo existe
+        publico estática booleano Existe(texto caminho) 
+        {
+            retorne nativo_arquivo_existe(caminho);
+        }
+        
+        // Excluir arquivo
+        publico estática vazio Excluir(texto caminho) 
+        {
+            nativo_excluir_arquivo(caminho);
+        }
+        
+        // Copiar arquivo
+        publico estática vazio Copiar(texto origem, texto destino) 
+        {
+            nativo_copiar_arquivo(origem, destino);
+        }
+        
+        // Mover arquivo
+        publico estática vazio Mover(texto origem, texto destino) 
+        {
+            nativo_mover_arquivo(origem, destino);
+        }
+        
+        // Obter informações do arquivo
+        publico estática InfoArquivo ObterInfo(texto caminho) 
+        {
+            retorne novo InfoArquivo(caminho);
+        }
+    }
+    
+    publico classe InfoArquivo 
+    {
+        publico texto Nome { obter; }
+        publico texto CaminhoCompleto { obter; }
+        publico inteiro Tamanho { obter; }
+        publico Data DataCriacao { obter; }
+        publico Data DataModificacao { obter; }
+        
+        publico InfoArquivo(texto caminho) 
+        {
+            este.Nome = nativo_obter_nome_arquivo(caminho);
+            este.CaminhoCompleto = nativo_obter_caminho_completo(caminho);
+            este.Tamanho = nativo_obter_tamanho_arquivo(caminho);
+            este.DataCriacao = nativo_obter_data_criacao(caminho);
+            este.DataModificacao = nativo_obter_data_modificacao(caminho);
         }
     }
 }

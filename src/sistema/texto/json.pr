@@ -1,0 +1,66 @@
+usando Sistema.Colecoes;
+
+espaco Sistema.Texto 
+{
+    publico classe Json
+    {
+        // Serializar objeto para JSON
+        publico estática texto Serializar(objeto obj) 
+        {
+            retorne nativo_serializar_json(obj);
+        }
+        
+        // Deserializar JSON para objeto
+        publico estática T Deserializar<T>(texto json) 
+        {
+            retorne nativo_deserializar_json<T>(json);
+        }
+        
+        // Verificar se string é JSON válido
+        publico estática booleano ValidarJson(texto json) 
+        {
+            retorne nativo_validar_json(json);
+        }
+        
+        // Formatar JSON com indentação
+        publico estática texto Formatar(texto json) 
+        {
+            retorne nativo_formatar_json(json);
+        }
+        
+        // Extrair valor por caminho
+        publico estática texto ExtrairValor(texto json, texto caminho) 
+        {
+            retorne nativo_extrair_valor_json(json, caminho);
+        }
+    }
+    
+    publico classe JsonObjeto 
+    {
+        privado Dicionario<texto, objeto> propriedades;
+        
+        publico JsonObjeto() 
+        {
+            este.propriedades = novo Dicionario<texto, objeto>();
+        }
+        
+        publico vazio Adicionar(texto chave, objeto valor) {
+            este.propriedades.Adicionar(chave, valor);
+        }
+        
+        publico T Obter<T>(texto chave) {
+            var valor = este.propriedades.Obter(chave);
+            retorne (T)valor;
+        }
+        
+        publico texto ParaJson() {
+            retorne Json.Serializar(este.propriedades);
+        }
+        
+        publico estática JsonObjeto DeJson(texto json) {
+            var obj = novo JsonObjeto();
+            obj.propriedades = Json.Deserializar<Dicionario<texto, objeto>>(json);
+            retorne obj;
+        }
+    }
+}

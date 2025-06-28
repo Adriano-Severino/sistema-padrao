@@ -1,0 +1,115 @@
+espaco Sistema.Data 
+{
+    publico classe Data 
+    {
+        publico inteiro Ano { obter; definir; }
+        publico inteiro Mes { obter; definir; }
+        publico inteiro Dia { obter; definir; }
+        publico inteiro Hora { obter; definir; }
+        publico inteiro Minuto { obter; definir; }
+        publico inteiro Segundo { obter; definir; }
+        
+        publico Data() 
+        {
+            var agora = nativo_obter_data_atual();
+            este.Ano = agora.Ano;
+            este.Mes = agora.Mes;
+            este.Dia = agora.Dia;
+            este.Hora = agora.Hora;
+            este.Minuto = agora.Minuto;
+            este.Segundo = agora.Segundo;
+        }
+        
+        publico Data(inteiro ano, inteiro mes, inteiro dia) 
+        {
+            este.Ano = ano;
+            este.Mes = mes;
+            este.Dia = dia;
+            este.Hora = 0;
+            este.Minuto = 0;
+            este.Segundo = 0;
+        }
+        
+        publico Data(inteiro ano, inteiro mes, inteiro dia, inteiro hora, inteiro minuto, inteiro segundo) 
+        {
+            este.Ano = ano;
+            este.Mes = mes;
+            este.Dia = dia;
+            este.Hora = hora;
+            este.Minuto = minuto;
+            este.Segundo = segundo;
+        }
+        
+        // Data atual
+        publico static Data Agora() 
+        {
+            retorne novo Data();
+        }
+        
+        // Apenas data (sem hora)
+        publico static Data Hoje() 
+        {
+            var agora = novo Data();
+            agora.Hora = 0;
+            agora.Minuto = 0;
+            agora.Segundo = 0;
+            retorne agora;
+        }
+        
+        // Adicionar dias
+        publico Data AdicionarDias(inteiro dias) 
+        {
+            retorne nativo_adicionar_dias(este, dias);
+        }
+        
+        // Adicionar meses
+        publico Data AdicionarMeses(inteiro meses) 
+        {
+            retorne nativo_adicionar_meses(este, meses);
+        }
+        
+        // Adicionar anos
+        publico Data AdicionarAnos(inteiro anos) 
+        {
+            retorne nativo_adicionar_anos(este, anos);
+        }
+        
+        // Formatar como string
+        publico texto ParaTexto()
+        {
+            retorne $"{este.Dia:00}/{este.Mes:00}/{este.Ano} {este.Hora:00}:{este.Minuto:00}:{este.Segundo:00}";
+        }
+        
+        publico texto ParaTexto(texto formato) 
+        {
+            retorne nativo_formatar_data(este, formato);
+        }
+        
+        // Parsear de string
+        publico static Data DeTexto(texto texto) 
+        {
+            retorne nativo_parsear_data(texto);
+        }
+        
+        // Comparações
+        publico booleano Igual(Data outra) 
+        {
+            retorne este.Ano == outra.Ano && 
+                   este.Mes == outra.Mes && 
+                   este.Dia == outra.Dia &&
+                   este.Hora == outra.Hora &&
+                   este.Minuto == outra.Minuto &&
+                   este.Segundo == outra.Segundo;
+        }
+        
+        publico booleano Antes(Data outra) 
+        {
+            retorne nativo_comparar_datas(este, outra) < 0;
+        }
+        
+        publico booleano Depois(Data outra) 
+        {
+            retorne nativo_comparar_datas(este, outra) > 0;
+        }
+    }
+}

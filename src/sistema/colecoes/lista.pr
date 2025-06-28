@@ -1,0 +1,133 @@
+espaco Sistema.Colecoes 
+{
+    publico classe Lista<T> 
+    {
+
+        privado T[] itens;
+        privado inteiro tamanho;
+        privado inteiro capacidade;
+        
+        publico inteiro Tamanho 
+        { 
+            obter { retorne este.tamanho; }
+        }
+        
+        publico inteiro Capacidade 
+        {
+            obter { retorne este.capacidade; }
+        }
+        
+        publico Lista() 
+        {
+            este.capacidade = 4;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        publico Lista(inteiro capacidadeInicial) 
+        {
+            este.capacidade = capacidadeInicial;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        // Adicionar item
+        publico vazio Adicionar(T item) 
+        {
+            se (este.tamanho >= este.capacidade) 
+            {
+                este.RedimensionarArray();
+            }
+            este.itens[este.tamanho] = item;
+            este.tamanho++;
+        }
+        
+        // Obter item por índice
+        publico T Obter(inteiro indice) 
+        {
+            se (indice < 0 || indice >= este.tamanho) 
+            {
+                imprima("Índice fora dos limites");
+                retorne nulo;
+            }
+            retorne este.itens[indice];
+        }
+        
+        // Definir item por índice
+        publico vazio Definir(inteiro indice, T item) 
+        {
+            se (indice < 0 || indice >= este.tamanho) {
+                imprima("Índice fora dos limites");
+                retorne;
+            }
+            este.itens[indice] = item;
+        }
+        
+        // Remover item por índice
+        publico vazio RemoverEm(inteiro indice) 
+        {
+            se (indice < 0 || indice >= este.tamanho) 
+            {
+                retorne;
+            }
+            
+            para (var i = indice; i < este.tamanho - 1; i++) 
+            {
+                este.itens[i] = este.itens[i + 1];
+            }
+            este.tamanho--;
+        }
+        
+        // Remover item por valor
+        publico booleano Remover(T item) 
+        {
+            para (var i = 0; i < este.tamanho; i++) {
+                se (este.itens[i] == item) {
+                    este.RemoverEm(i);
+                    retorne verdadeiro;
+                }
+            }
+            retorne falso;
+        }
+        
+        // Verificar se contém item
+        publico booleano Contem(T item) 
+        {
+            para (var i = 0; i < este.tamanho; i++) {
+                se (este.itens[i] == item) {
+                    retorne verdadeiro;
+                }
+            }
+            retorne falso;
+        }
+        
+        // Limpar lista
+        publico vazio Limpar() 
+        {
+            este.tamanho = 0;
+        }
+        
+        // Encontrar índice de um item
+        publico inteiro IndiceDe(T item) 
+        {
+            para (var i = 0; i < este.tamanho; i++) 
+            {
+                se (este.itens[i] == item) {
+                    retorne i;
+                }
+            }
+            retorne -1;
+        }
+        
+        privado vazio RedimensionarArray() 
+        {
+            este.capacidade = este.capacidade * 2;
+            var novosItens = novo T[este.capacidade];
+            para (var i = 0; i < este.tamanho; i++) 
+            {
+                novosItens[i] = este.itens[i];
+            }
+            este.itens = novosItens;
+        }
+    }
+}

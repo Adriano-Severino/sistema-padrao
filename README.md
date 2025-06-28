@@ -1,4 +1,4 @@
-# Meu Compilador - Por do sol
+# Sistema Padrão - Por do sol
 
 Este é o repositório do projeto "System", um sistema padrão para a linguagem de programação "Por do Sol" uma linguagem de programação moderna escrita em português brasileiro.
 
@@ -16,18 +16,7 @@ Esta linguagem "por do sol" foi desenvolvida com foco acadêmico e educacional, 
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de que você tem os seguintes softwares instalados:
 
-- **Rust (versão 1.70+):** Necessário para construir o compilador.
-    - Para instalar o Rust, use o `rustup`:
-      ```bash
-      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-      ```
-- **LLVM 16:** A linguagem depende especificamente desta versão.
-    - Para Ubuntu/Debian:
-      ```bash
-      
-      ```
 - 
 ## ⚙️ Instalação e Configuração
 

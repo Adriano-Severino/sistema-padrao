@@ -1,0 +1,59 @@
+usando Sistema.Colecoes;
+
+espaco Sistema.IO 
+{
+    publico estatica classe Diretorio 
+    {
+        // Verificar se diretório existe
+        publico estatica booleano Existe(texto caminho) 
+        {
+            retorne nativo_diretorio_existe(caminho);
+        }
+        
+        // Criar diretório
+        publico estatica vazio Criar(texto caminho) 
+        {
+            nativo_criar_diretorio(caminho);
+        }
+        
+        // Excluir diretório
+        publico estatica vazio Excluir(texto caminho, booleano recursivo) 
+        {
+            nativo_excluir_diretorio(caminho, recursivo);
+        }
+        
+        // Listar arquivos
+        publico estatica Lista<texto> ListarArquivos(texto caminho) 
+        {
+            var arquivos = novo Lista<texto>();
+            var lista_nativa = nativo_listar_arquivos(caminho);
+            para (var i = 0; i < lista_nativa.Tamanho; i++) {
+                arquivos.Adicionar(lista_nativa.Obter(i));
+            }
+            retorne arquivos;
+        }
+        
+        // Listar diretórios
+        publico estatica Lista<texto> ListarDiretorios(texto caminho) 
+        {
+            var diretorios = novo Lista<texto>();
+            var lista_nativa = nativo_listar_diretorios(caminho);
+            para (var i = 0; i < lista_nativa.Tamanho; i++) {
+                diretorios.Adicionar(lista_nativa.Obter(i));
+            }
+            retorne diretorios;
+        }
+        
+        // Obter diretório atual
+        publico estatica texto ObterAtual() 
+        {
+            retorne nativo_obter_diretorio_atual();
+        }
+        
+        // Definir diretório atual
+        publico estatica vazio DefinirAtual(texto caminho) 
+        {
+            nativo_definir_diretorio_atual(caminho);
+        }
+    }
+}

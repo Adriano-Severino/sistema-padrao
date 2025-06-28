@@ -1,0 +1,98 @@
+usando Sistema.Colecoes;
+usando Sistema.Texto;
+
+espaco Sistema.Rede {
+   
+    publico classe ClienteHttp 
+    {
+        publico texto BaseUrl { obter; definir; }
+        publico Dicionario<texto, texto> CabecalhosPadrao { obter; }
+        
+        publico ClienteHttp() 
+        {
+            este.CabecalhosPadrao = novo Dicionario<texto, texto>();
+            este.CabecalhosPadrao.Adicionar("User-Agent", "SistemaHttp/1.0");
+        }
+        
+        publico ClienteHttp(texto baseUrl) 
+        {
+            este.BaseUrl = baseUrl;
+            este.CabecalhosPadrao = novo Dicionario<texto, texto>();
+            este.CabecalhosPadrao.Adicionar("User-Agent", "SistemaHttp/1.0");
+        }
+        
+        // GET
+        publico RespostaHttp Get(texto url) 
+        {
+            var urlCompleta = este.CombinarUrl(url);
+            retorne nativo_http_get(urlCompleta, este.CabecalhosPadrao);
+        }
+        
+        // POST
+        publico RespostaHttp Post(texto url, texto corpo) 
+        {
+            var urlCompleta = este.CombinarUrl(url);
+            retorne nativo_http_post(urlCompleta, corpo, este.CabecalhosPadrao);
+        }
+        
+        // POST JSON
+        publico RespostaHttp PostJson(texto url, objeto dados) 
+        {
+            var json = Json.Serializar(dados);
+            este.CabecalhosPadrao.Adicionar("Content-Type", "application/json");
+            retorne este.Post(url, json);
+        }
+        
+        // PUT
+        publico RespostaHttp Put(texto url, texto corpo) 
+        {
+            var urlCompleta = este.CombinarUrl(url);
+            retorne nativo_http_put(urlCompleta, corpo, este.CabecalhosPadrao);
+        }
+        
+        // DELETE
+        publico RespostaHttp Delete(texto url) 
+        {
+            var urlCompleta = este.CombinarUrl(url);
+            retorne nativo_http_delete(urlCompleta, este.CabecalhosPadrao);
+        }
+        
+        // Adicionar cabeçalho
+        publico vazio AdicionarCabecalho(texto nome, texto valor) 
+        {
+            este.CabecalhosPadrao.Adicionar(nome, valor);
+        }
+        
+        privado texto CombinarUrl(texto url) 
+        {
+            se (este.BaseUrl != nulo && url[0] != '/') 
+            {
+                retorne este.BaseUrl + "/" + url;
+            }
+            retorne url;
+        }
+    }
+    
+    publico classe RespostaHttp 
+    {
+        publico inteiro CodigoStatus { obter; definir; }
+        publico texto Corpo { obter; definir; }
+        publico Dicionario<texto, texto> Cabecalhos { obter; definir; }
+        publico booleano Sucesso 
+        { 
+            obter { retorne este.CodigoStatus >= 200 && este.CodigoStatus < 300; }
+        }
+        
+        publico RespostaHttp(inteiro codigo, texto corpo) 
+        {
+            este.CodigoStatus = codigo;
+            este.Corpo = corpo;
+            este.Cabecalhos = novo Dicionario<texto, texto>();
+        }
+        
+        publico T CorpoComoJson<T>() 
+        {
+            retorne Json.Deserializar<T>(este.Corpo);
+        }
+    }
+}
