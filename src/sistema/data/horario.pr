@@ -1,0 +1,81 @@
+espaco Sistema.Data
+{
+    publico classe Horario
+    {
+        publico inteiro Hora { obter; definir; }
+        publico inteiro Minuto { obter; definir; }
+        publico inteiro Segundo { obter; definir; }
+        
+        publico Horario()
+        {
+            este.Hora = 0;
+            este.Minuto = 0;
+            este.Segundo = 0;
+        }
+        
+        publico Horario(inteiro hora, inteiro minuto, inteiro segundo)
+        {
+            este.Hora = hora;
+            este.Minuto = minuto;
+            este.Segundo = segundo;
+        }
+        
+        // Horário atual
+        publico static Horario Agora()
+        {
+            var agora = nativo_obter_data_atual();
+            retorne novo Horario(agora.Hora, agora.Minuto, agora.Segundo);
+        }
+        
+        // Adicionar segundos
+        publico Horario AdicionarSegundos(inteiro segundos)
+        {
+            retorne nativo_adicionar_segundos_horario(este, segundos);
+        }
+        
+        // Adicionar minutos
+        publico Horario AdicionarMinutos(inteiro minutos)
+        {
+            retorne nativo_adicionar_minutos_horario(este, minutos);
+        }
+        
+        // Adicionar horas
+        publico Horario AdicionarHoras(inteiro horas)
+        {
+            retorne nativo_adicionar_horas_horario(este, horas);
+        }
+        
+        // Formatar como string
+        publico texto ParaTexto()
+        {
+            retorne $"{este.Hora:00}:{este.Minuto:00}:{este.Segundo:00}";
+        }
+        
+        publico texto ParaTexto(texto formato)
+        {
+            retorne nativo_formatar_horario(este, formato);
+        }
+        
+        // Parsear de string
+        publico static Horario DeTexto(texto texto)
+        {
+            retorne nativo_parsear_horario(texto);
+        }
+        
+        // Comparações
+        publico booleano Igual(Horario outro)
+        {
+            retorne este.Hora == outro.Hora && este.Minuto == outro.Minuto && este.Segundo == outro.Segundo;
+        }
+        
+        publico booleano Antes(Horario outro)
+        {
+            retorne nativo_comparar_horarios(este, outro) < 0;
+        }
+        
+        publico booleano Depois(Horario outro)
+        {
+            retorne nativo_comparar_horarios(este, outro) > 0;
+        }
+    }
+}

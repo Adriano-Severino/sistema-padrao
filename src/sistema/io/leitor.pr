@@ -1,0 +1,38 @@
+espaco Sistema.IO
+{
+    publico classe Leitor
+    {
+        privado nativo_leitor _leitor;
+        publico texto Caminho { obter; }
+        
+        publico Leitor(texto caminho)
+        {
+            este.Caminho = caminho;
+            este._leitor = nativo_abrir_leitor_arquivo(caminho);
+        }
+        
+        // Ler uma linha
+        publico texto LerLinha()
+        {
+            retorne nativo_leitor_ler_linha(este._leitor);
+        }
+        
+        // Ler todo o conteúdo
+        publico texto LerTudo()
+        {
+            retorne nativo_leitor_ler_tudo(este._leitor);
+        }
+        
+        // Verificar se chegou ao fim
+        publico booleano Fim()
+        {
+            retorne nativo_leitor_fim(este._leitor);
+        }
+        
+        // Fechar o leitor
+        publico vazio Fechar()
+        {
+            nativo_leitor_fechar(este._leitor);
+        }
+    }
+}

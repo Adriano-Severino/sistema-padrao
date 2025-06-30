@@ -1,0 +1,13 @@
+espaco Sistema.Rede {
+    publico estática classe Dns {
+        // Resolve um nome de domínio para uma lista de endereços IP
+        publico estática Lista<texto> ObterEnderecos(texto dominio) {
+            retorne nativo_dns_obter_enderecos(dominio);
+        }
+        
+        // Resolve um endereço IP para o nome do host
+        publico estática texto ObterNomeHost(texto enderecoIp) {
+            retorne nativo_dns_obter_nome_host(enderecoIp);
+        }
+    }
+}

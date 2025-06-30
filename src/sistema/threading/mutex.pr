@@ -1,0 +1,43 @@
+espaco Sistema.Threading 
+{
+    publico classe Mutex 
+    {
+        privado nativo_mutex _mutex;
+        
+        // Construtor padrão
+        publico Mutex() 
+        {
+            este._mutex = nativo_mutex_criar();
+        }
+        
+        // Construtor nomeado (opcional)
+        publico Mutex(texto nome) 
+        {
+            este._mutex = nativo_mutex_criar_nomeado(nome);
+        }
+        
+        // Tenta adquirir o mutex (bloqueia até conseguir)
+        publico vazio Aguardar() 
+        {
+            nativo_mutex_aguardar(este._mutex);
+        }
+        
+        // Tenta adquirir o mutex com timeout (em milissegundos)
+        publico booleano Aguardar(inteiro timeoutMs) 
+        {
+            retorne nativo_mutex_aguardar_timeout(este._mutex, timeoutMs);
+        }
+        
+        // Libera o mutex
+        publico vazio Liberar() 
+        {
+            nativo_mutex_liberar(este._mutex);
+        }
+        
+        // Libera recursos
+        publico vazio Fechar() 
+        {
+            nativo_mutex_fechar(este._mutex);
+        }
+    }
+}

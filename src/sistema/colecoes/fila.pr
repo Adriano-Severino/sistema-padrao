@@ -1,0 +1,97 @@
+espaco Sistema.Colecoes
+{
+    publico classe Fila<T>
+    {
+        privado T[] itens;
+        privado inteiro inicio;
+        privado inteiro fim;
+        privado inteiro tamanho;
+        privado inteiro capacidade;
+        
+        publico inteiro Tamanho
+        {
+            obter { retorne este.tamanho; }
+        }
+        
+        publico booleano EstaVazia {
+            obter { retorne este.tamanho == 0; }
+        }
+        
+        publico Fila()
+        {
+            este.capacidade = 8;
+            este.itens = novo T[este.capacidade];
+            este.inicio = 0;
+            este.fim = 0;
+            este.tamanho = 0;
+        }
+        
+        publico Fila(inteiro capacidadeInicial)
+        {
+            este.capacidade = capacidadeInicial;
+            este.itens = novo T[este.capacidade];
+            este.inicio = 0;
+            este.fim = 0;
+            este.tamanho = 0;
+        }
+        
+        // Enfileirar (adicionar ao fim)
+        publico vazio Enfileirar(T item)
+        {
+            se (este.tamanho == este.capacidade) {
+                este.Redimensionar();
+            }
+            este.itens[este.fim] = item;
+            este.fim = (este.fim + 1) % este.capacidade;
+            este.tamanho++;
+        }
+        
+        // Desenfileirar (remover do início)
+        publico T Desenfileirar()
+        {
+            se (este.tamanho == 0) {
+                imprima("Fila vazia");
+                retorne nulo;
+            }
+            var item = este.itens[este.inicio];
+            este.itens[este.inicio] = nulo;
+            este.inicio = (este.inicio + 1) % este.capacidade;
+            este.tamanho--;
+            retorne item;
+        }
+        
+        // Espiar (ver o primeiro sem remover)
+        publico T Espiar()
+        {
+            se (este.tamanho == 0) {
+                imprima("Fila vazia");
+                retorne nulo;
+            }
+            retorne este.itens[este.inicio];
+        }
+        
+        // Limpar fila
+        publico vazio Limpar()
+        {
+            para (var i = 0; i < este.capacidade; i++) {
+                este.itens[i] = nulo;
+            }
+            este.inicio = 0;
+            este.fim = 0;
+            este.tamanho = 0;
+        }
+        
+        privado vazio Redimensionar()
+        {
+            var novaCapacidade = este.capacidade * 2;
+            var novosItens = novo T[novaCapacidade];
+            para (var i = 0; i < este.tamanho; i++) {
+                novosItens[i] = este.itens[(este.inicio + i) % este.capacidade];
+            }
+            este.itens = novosItens;
+            este.inicio = 0;
+            este.fim = este.tamanho;
+            este.capacidade = novaCapacidade;
+        }
+    }
+}
