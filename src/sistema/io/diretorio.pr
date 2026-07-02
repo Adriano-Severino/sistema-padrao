@@ -2,28 +2,28 @@ usando Sistema.Colecoes;
 
 espaco Sistema.IO 
 {
-    publico estatica classe Diretorio 
+    publico estática classe Diretorio 
     {
         // Verificar se diretório existe
-        publico estatica booleano Existe(texto caminho) 
+        publico estática booleano Existe(texto caminho) 
         {
             retorne nativo_diretorio_existe(caminho);
         }
         
         // Criar diretório
-        publico estatica vazio Criar(texto caminho) 
+        publico estática vazio Criar(texto caminho) 
         {
             nativo_criar_diretorio(caminho);
         }
         
         // Excluir diretório
-        publico estatica vazio Excluir(texto caminho, booleano recursivo) 
+        publico estática vazio Excluir(texto caminho, booleano recursivo) 
         {
             nativo_excluir_diretorio(caminho, recursivo);
         }
         
         // Listar arquivos
-        publico estatica Lista<texto> ListarArquivos(texto caminho) 
+        publico estática Lista<texto> ListarArquivos(texto caminho) 
         {
             var arquivos = novo Lista<texto>();
             var lista_nativa = nativo_listar_arquivos(caminho);
@@ -34,7 +34,7 @@ espaco Sistema.IO
         }
         
         // Listar diretórios
-        publico estatica Lista<texto> ListarDiretorios(texto caminho) 
+        publico estática Lista<texto> ListarDiretorios(texto caminho) 
         {
             var diretorios = novo Lista<texto>();
             var lista_nativa = nativo_listar_diretorios(caminho);
@@ -45,13 +45,13 @@ espaco Sistema.IO
         }
         
         // Obter diretório atual
-        publico estatica texto ObterAtual() 
+        publico estática texto ObterAtual() 
         {
             retorne nativo_obter_diretorio_atual();
         }
         
         // Definir diretório atual
-        publico estatica vazio DefinirAtual(texto caminho) 
+        publico estática vazio DefinirAtual(texto caminho) 
         {
             nativo_definir_diretorio_atual(caminho);
         }
