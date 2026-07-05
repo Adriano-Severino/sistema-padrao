@@ -2,7 +2,7 @@
 nome = "Sistema"
 versao = "1.0.0"
 descricao = "Biblioteca padrão da linguagem portuguesa"
-autor = "Adriano Severino"
+autor = "Adriano Xavier"
 
 [modulos]
 io = ["arquivo", "diretorio", "leitor"]

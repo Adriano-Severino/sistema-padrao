@@ -1,0 +1,21 @@
+espaco Sistema {
+    
+    publico estática classe Console 
+    {
+        publico vazio EscreverLinha(texto mensagem) 
+        {
+            // O corpo é tratado pelo runtime
+        }
+        
+        publico vazio Escrever(texto mensagem) 
+        {
+            // O corpo é tratado pelo runtime
+        }
+        
+        publico texto LerLinha() 
+        {
+            // O corpo é tratado pelo runtime
+            retorne ""; // Retorno padrão para satisfazer o parser
+        }
+    }
+}
