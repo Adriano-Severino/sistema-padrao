@@ -39,7 +39,7 @@ espaco Sistema.Colecoes
                 este.RedimensionarArray();
             }
             este.itens[este.tamanho] = item;
-            este.tamanho++;
+            este.tamanho = este.tamanho + 1;
         }
         
         // Obter item por índice
@@ -71,21 +71,26 @@ espaco Sistema.Colecoes
                 retorne;
             }
             
-            para (var i = indice; i < este.tamanho - 1; i++) 
+            var i = indice;
+            enquanto (i < este.tamanho - 1) 
             {
                 este.itens[i] = este.itens[i + 1];
+                i = i + 1;
             }
-            este.tamanho--;
+            este.tamanho = este.tamanho - 1;
+
         }
         
         // Remover item por valor
         publico booleano Remover(T item) 
         {
-            para (var i = 0; i < este.tamanho; i++) {
+            var i = 0;
+            enquanto (i < este.tamanho) {
                 se (este.itens[i] == item) {
                     este.RemoverEm(i);
                     retorne verdadeiro;
                 }
+                i = i + 1;
             }
             retorne falso;
         }
@@ -93,10 +98,12 @@ espaco Sistema.Colecoes
         // Verificar se contém item
         publico booleano Contem(T item) 
         {
-            para (var i = 0; i < este.tamanho; i++) {
+            var i = 0;
+            enquanto (i < este.tamanho) {
                 se (este.itens[i] == item) {
                     retorne verdadeiro;
                 }
+                i = i + 1;
             }
             retorne falso;
         }
@@ -110,11 +117,13 @@ espaco Sistema.Colecoes
         // Encontrar índice de um item
         publico inteiro IndiceDe(T item) 
         {
-            para (var i = 0; i < este.tamanho; i++) 
+            var i = 0;
+            enquanto (i < este.tamanho) 
             {
                 se (este.itens[i] == item) {
                     retorne i;
                 }
+                i = i + 1;
             }
             retorne -1;
         }
@@ -123,9 +132,11 @@ espaco Sistema.Colecoes
         {
             este.capacidade = este.capacidade * 2;
             var novosItens = novo T[este.capacidade];
-            para (var i = 0; i < este.tamanho; i++) 
+            var i = 0;
+            enquanto (i < este.tamanho) 
             {
                 novosItens[i] = este.itens[i];
+                i = i + 1;
             }
             este.itens = novosItens;
         }

@@ -37,7 +37,8 @@ espaco Sistema.Colecoes
             var novaEntrada = novo EntradaDicionario<TChave, TValor>(chave, valor);
             novaEntrada.Proximo = este.buckets[indice];
             este.buckets[indice] = novaEntrada;
-            este.tamanho++;
+            este.tamanho = este.tamanho + 1;
+
         }
         
         // Obter valor
@@ -95,7 +96,8 @@ espaco Sistema.Colecoes
                     {
                         anterior.Proximo = entrada.Proximo;
                     }
-                    este.tamanho--;
+                    este.tamanho = este.tamanho - 1;
+
                     retorne verdadeiro;
                 }
                 anterior = entrada;
@@ -109,13 +111,15 @@ espaco Sistema.Colecoes
         publico Lista<TChave> ObterChaves() 
         {
             var chaves = novo Lista<TChave>();
-            para (var i = 0; i < este.capacidade; i++) 
+            var i = 0;
+            enquanto (i < este.capacidade) 
             {
                 var entrada = este.buckets[i];
                 enquanto (entrada != nulo) {
                     chaves.Adicionar(entrada.Chave);
                     entrada = entrada.Proximo;
                 }
+                i = i + 1;
             }
             retorne chaves;
         }
