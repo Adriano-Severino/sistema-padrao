@@ -12,7 +12,7 @@ A `sistema-padrao` deve ser a primeira e mais importante dependência para qualq
 
 - **Português Primeiro**: Todos os namespaces, classes, métodos, propriedades e tipos públicos devem ser nomeados em português brasileiro, de forma clara e idiomática. Por exemplo, `Sistema.IO.Arquivo` em vez de `System.IO.File`.
 - **Familiaridade com .NET/C#**: A estrutura de namespaces e a semântica das classes devem ser fortemente inspiradas na BCL do .NET. Isso facilita a transição de desenvolvedores C# e aproveita um design de API já consolidado. A ideia é traduzir o modelo mental, não apenas os nomes.
-- **Código Real e Compilável**: A biblioteca não é um conjunto de declarações, mas sim uma implementação funcional que é compilada para bytecode (`.pbc`).
+- **Código Real e Compilável**: A biblioteca não é um conjunto de declarações, mas sim uma implementação funcional que é compilada para bytecode (`.pbc`) ou executavel no caso de LLVM.
 - **Modularidade**: A biblioteca é organizada em namespaces que agrupam funcionalidades relacionadas, como `Sistema.IO` para entrada e saída, `Sistema.Colecoes` para estruturas de dados, e `Sistema.Texto` para manipulação de strings.
 
 ## Estrutura do Projeto
@@ -20,7 +20,7 @@ A `sistema-padrao` deve ser a primeira e mais importante dependência para qualq
 A estrutura do diretório `sistema-padrao` é organizada para facilitar a compilação como uma biblioteca autocontida.
 
 - `src/`: Contém todo o código-fonte da biblioteca, escrito em arquivos `.pr`. Os subdiretórios dentro de `src/` geralmente se alinham com os namespaces (ex: `src/IO/Arquivo.pr`).
-- `dist/`: Diretório de saída para os artefatos compilados. O principal artefato é `sistema.pbc`.
+- `dist/`: Diretório de saída para os artefatos compilados. O principal artefato é `sistema.pbc` ou `sistema.exe` no caso de compilar para windows com LLVM ou binarios em outros sistema depende da arquitetura do target compilado.
 - `agent.md`: Este arquivo, que descreve o projeto para a IA.
 - `README.md`: Documentação para desenvolvedores humanos.
 
