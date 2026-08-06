@@ -1,59 +1,25 @@
-usando Sistema.Colecoes;
-
 espaco Sistema.IO 
 {
     publico estática classe Diretorio 
     {
         // Verificar se diretório existe
-        publico estática booleano Existe(texto caminho) 
-        {
-            retorne nativo_diretorio_existe(caminho);
-        }
+        @Nativo("Diretorio::Existe")
+        publico estática externo booleano Existe(texto caminho);
         
         // Criar diretório
-        publico estática vazio Criar(texto caminho) 
-        {
-            nativo_criar_diretorio(caminho);
-        }
+        @Nativo("Diretorio::Criar")
+        publico estática externo vazio Criar(texto caminho);
         
         // Excluir diretório
-        publico estática vazio Excluir(texto caminho, booleano recursivo) 
-        {
-            nativo_excluir_diretorio(caminho, recursivo);
-        }
-        
-        // Listar arquivos
-        publico estática Lista<texto> ListarArquivos(texto caminho) 
-        {
-            var arquivos = novo Lista<texto>();
-            var lista_nativa = nativo_listar_arquivos(caminho);
-            para (var i = 0; i < lista_nativa.Tamanho; i++) {
-                arquivos.Adicionar(lista_nativa.Obter(i));
-            }
-            retorne arquivos;
-        }
-        
-        // Listar diretórios
-        publico estática Lista<texto> ListarDiretorios(texto caminho) 
-        {
-            var diretorios = novo Lista<texto>();
-            var lista_nativa = nativo_listar_diretorios(caminho);
-            para (var i = 0; i < lista_nativa.Tamanho; i++) {
-                diretorios.Adicionar(lista_nativa.Obter(i));
-            }
-            retorne diretorios;
-        }
+        @Nativo("Diretorio::Excluir")
+        publico estática externo vazio Excluir(texto caminho, booleano recursivo);
         
         // Obter diretório atual
-        publico estática texto ObterAtual() 
-        {
-            retorne nativo_obter_diretorio_atual();
-        }
+        @Nativo("Diretorio::ObterAtual")
+        publico estática externo texto ObterAtual();
         
         // Definir diretório atual
-        publico estática vazio DefinirAtual(texto caminho) 
-        {
-            nativo_definir_diretorio_atual(caminho);
-        }
+        @Nativo("Diretorio::DefinirAtual")
+        publico estática externo vazio DefinirAtual(texto caminho);
     }
 }

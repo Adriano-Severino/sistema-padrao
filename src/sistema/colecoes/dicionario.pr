@@ -2,9 +2,7 @@ espaco Sistema.Colecoes
 {
     publico classe Dicionario<TChave, TValor> 
     {
-        privado EntradaDicionario<TChave, TValor>[] buckets;
         privado inteiro tamanho;
-        privado inteiro capacidade;
         
         publico inteiro Tamanho 
         { 
@@ -13,133 +11,27 @@ espaco Sistema.Colecoes
         
         publico Dicionario() 
         {
-            este.capacidade = 16;
-            este.buckets = novo EntradaDicionario<TChave, TValor>[este.capacidade];
             este.tamanho = 0;
         }
         
         // Adicionar ou atualizar
-        publico vazio Adicionar(TChave chave, TValor valor) 
-        {
-            var hash = este.ObterHash(chave);
-            var indice = hash % este.capacidade;
-            
-            var entrada = este.buckets[indice];
-            enquanto (entrada != nulo) {
-                se (entrada.Chave == chave) {
-                    entrada.Valor = valor; // Atualizar
-                    retorne;
-                }
-                entrada = entrada.Proximo;
-            }
-            
-            // Adicionar nova entrada
-            var novaEntrada = novo EntradaDicionario<TChave, TValor>(chave, valor);
-            novaEntrada.Proximo = este.buckets[indice];
-            este.buckets[indice] = novaEntrada;
-            este.tamanho = este.tamanho + 1;
-
-        }
+        @Nativo("Dicionario::Adicionar")
+        publico externo vazio Adicionar(TChave chave, TValor valor);
         
         // Obter valor
-        publico TValor Obter(TChave chave) 
-        {
-            var hash = este.ObterHash(chave);
-            var indice = hash % este.capacidade;
-            
-            var entrada = este.buckets[indice];
-            enquanto (entrada != nulo) {
-                se (entrada.Chave == chave) {
-                    retorne entrada.Valor;
-                }
-                entrada = entrada.Proximo;
-            }
-            
-            retorne nulo;
-        }
+        @Nativo("Dicionario::Obter")
+        publico externo TValor Obter(TChave chave);
         
         // Verificar se contém chave
-        publico booleano ContemChave(TChave chave) 
-        {
-            var hash = este.ObterHash(chave);
-            var indice = hash % este.capacidade;
-            
-            var entrada = este.buckets[indice];
-            enquanto (entrada != nulo) {
-                se (entrada.Chave == chave) {
-                    retorne verdadeiro;
-                }
-                entrada = entrada.Proximo;
-            }
-            
-            retorne falso;
-        }
+        @Nativo("Dicionario::ContemChave")
+        publico externo booleano ContemChave(TChave chave);
         
         // Remover entrada
-        publico booleano Remover(TChave chave) 
-        {
-            var hash = este.ObterHash(chave);
-            var indice = hash % este.capacidade;
-            
-            var entrada = este.buckets[indice];
-            var anterior = nulo;
-            
-            enquanto (entrada != nulo) 
-            {
-                se (entrada.Chave == chave) 
-                {
-                    se (anterior == nulo) 
-                    {
-                        este.buckets[indice] = entrada.Proximo;
-                    } 
-                    senão 
-                    {
-                        anterior.Proximo = entrada.Proximo;
-                    }
-                    este.tamanho = este.tamanho - 1;
-
-                    retorne verdadeiro;
-                }
-                anterior = entrada;
-                entrada = entrada.Proximo;
-            }
-            
-            retorne falso;
-        }
+        @Nativo("Dicionario::Remover")
+        publico externo booleano Remover(TChave chave);
         
-        // Obter todas as chaves
-        publico Lista<TChave> ObterChaves() 
-        {
-            var chaves = novo Lista<TChave>();
-            var i = 0;
-            enquanto (i < este.capacidade) 
-            {
-                var entrada = este.buckets[i];
-                enquanto (entrada != nulo) {
-                    chaves.Adicionar(entrada.Chave);
-                    entrada = entrada.Proximo;
-                }
-                i = i + 1;
-            }
-            retorne chaves;
-        }
-        
-        privado inteiro ObterHash(TChave chave) 
-        {
-            retorne nativo_obter_hash_code(chave);
-        }
-    }
-    
-    privado classe EntradaDicionario<TChave, TValor> 
-    {
-        publico TChave Chave { obter; definir; }
-        publico TValor Valor { obter; definir; }
-        publico EntradaDicionario<TChave, TValor> Proximo { obter; definir; }
-        
-        publico EntradaDicionario(TChave chave, TValor valor) {
-            este.Chave = chave;
-            este.Valor = valor;
-            este.Proximo = nulo;
-        }
+        // Limpar
+        @Nativo("Dicionario::Limpar")
+        publico externo vazio Limpar();
     }
 }

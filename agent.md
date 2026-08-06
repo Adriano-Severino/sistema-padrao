@@ -71,3 +71,5 @@ Ao adicionar uma nova funcionalidade à biblioteca padrão (por exemplo, uma cla
 6.  **Documentar**: Atualize o `README.md` da biblioteca para incluir a nova funcionalidade.
 
 O objetivo final é enriquecer a `sistema-padrao` para que ela se torne uma base sólida e completa para o desenvolvimento de aplicações reais em Por do Sol.
+
+Para novas features ou refatorações, siga as boas práticas e padrões de projeto para obter performance, confiabilidade, rastreabilidade, manutenibilidade e escalabilidade. Isso facilitará a manutenção e a implementação de novas features, tornando a linguagem profissional e pronta para o mercado.

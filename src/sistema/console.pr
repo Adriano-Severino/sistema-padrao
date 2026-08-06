@@ -2,20 +2,13 @@ espaco Sistema {
     
     publico estática classe Console 
     {
-        publico vazio EscreverLinha(texto mensagem) 
-        {
-            // O corpo é tratado pelo runtime
-        }
+        @Nativo("Console::EscreverLinha")
+        publico estática externo vazio EscreverLinha(texto mensagem);
         
-        publico vazio Escrever(texto mensagem) 
-        {
-            // O corpo é tratado pelo runtime
-        }
+        @Nativo("Console::Escrever")
+        publico estática externo vazio Escrever(texto mensagem);
         
-        publico texto LerLinha() 
-        {
-            // O corpo é tratado pelo runtime
-            retorne ""; // Retorno padrão para satisfazer o parser
-        }
+        @Nativo("Console::LerLinha")
+        publico estática externo texto LerLinha();
     }
 }
