@@ -1,0 +1,486 @@
+[PBL]
+nome=Sistema
+versao=1.0.0
+
+[MANIFESTO]
+DEFINE_CLASS Sistema.Colecoes.Dicionario NULO
+PROPERTY Sistema.Colecoes.Dicionario Tamanho inteiro
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Adicionar vazio Dicionario::Adicionar TChave:chave TValor:valor
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Obter TValor Dicionario::Obter TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario ContemChave booleano Dicionario::ContemChave TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Remover booleano Dicionario::Remover TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Limpar vazio Dicionario::Limpar 
+DEFINE_CLASS Sistema.Colecoes.Lista NULO
+PROPERTY Sistema.Colecoes.Lista Tamanho inteiro
+PROPERTY Sistema.Colecoes.Lista Capacidade inteiro
+DEFINE_METHOD Sistema.Colecoes.Lista Adicionar vazio 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Lista Obter T 1 inteiro:indice
+DEFINE_METHOD Sistema.Colecoes.Lista Definir vazio 2 inteiro:indice T:item
+DEFINE_METHOD Sistema.Colecoes.Lista RemoverEm vazio 1 inteiro:indice
+DEFINE_METHOD Sistema.Colecoes.Lista Remover booleano 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Lista Contem booleano 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Lista Limpar vazio 0 
+DEFINE_METHOD Sistema.Colecoes.Lista IndiceDe inteiro 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Lista RedimensionarArray vazio 0 
+DEFINE_STATIC_CLASS Sistema.Console
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console EscreverLinha vazio Console::EscreverLinha texto:mensagem
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console Escrever vazio Console::Escrever texto:mensagem
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console LerLinha texto Console::LerLinha 
+DEFINE_CLASS Sistema.Data.Data NULO
+PROPERTY Sistema.Data.Data Ano inteiro
+PROPERTY Sistema.Data.Data Mes inteiro
+PROPERTY Sistema.Data.Data Dia inteiro
+PROPERTY Sistema.Data.Data Hora inteiro
+PROPERTY Sistema.Data.Data Minuto inteiro
+PROPERTY Sistema.Data.Data Segundo inteiro
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Data Agora Data Data::Agora 
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Data Hoje Data Data::Hoje 
+DEFINE_METHOD Sistema.Data.Data ParaTexto texto 0 
+DEFINE_NATIVE_METHOD Sistema.Data.Data Formatar texto Data::Formatar texto:formato
+DEFINE_METHOD Sistema.Data.Data Igual booleano 1 Data:outra
+DEFINE_STATIC_CLASS Sistema.IO.Arquivo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTexto texto Arquivo::LerTexto texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTexto vazio Arquivo::EscreverTexto texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTexto vazio Arquivo::AdicionarTexto texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Existe booleano Arquivo::Existe texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Excluir vazio Arquivo::Excluir texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Copiar vazio Arquivo::Copiar texto:origem texto:destino
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Mover vazio Arquivo::Mover texto:origem texto:destino
+DEFINE_STATIC_CLASS Sistema.IO.Diretorio
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Existe booleano Diretorio::Existe texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Criar vazio Diretorio::Criar texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Excluir vazio Diretorio::Excluir texto:caminho booleano:recursivo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio ObterAtual texto Diretorio::ObterAtual 
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio DefinirAtual vazio Diretorio::DefinirAtual texto:caminho
+DEFINE_CLASS Sistema.Rede.ClienteHttp NULO
+PROPERTY Sistema.Rede.ClienteHttp BaseUrl texto
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Get texto ClienteHttp::Get texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Post texto ClienteHttp::Post texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Put texto ClienteHttp::Put texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Delete texto ClienteHttp::Delete texto:url
+DEFINE_STATIC_CLASS Sistema.Texto.Json
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Serializar texto Json::Serializar objeto:obj
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json ValidarJson booleano Json::ValidarJson texto:json
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Formatar texto Json::Formatar texto:json
+
+[BYTECODE]
+
+DEFINE_CLASS Sistema.Colecoes.Dicionario NULO Tamanho,tamanho|||
+DEFINE_METHOD Sistema.Colecoes.Dicionario construtor vazio 4 
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Dicionario Adicionar vazio 2 TChave:chave TValor:valor
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Dicionario Obter TValor 2 TChave:chave
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Dicionario ContemChave booleano 2 TChave:chave
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Dicionario Remover booleano 2 TChave:chave
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Dicionario Limpar vazio 2 
+LOAD_CONST_NULL
+RETURN
+END_CLASS
+DEFINE_CLASS Sistema.Colecoes.Lista NULO Tamanho,Capacidade,itens,tamanho,capacidade|||
+DEFINE_METHOD Sistema.Colecoes.Lista construtor vazio 14 
+LOAD_VAR este
+LOAD_CONST_INT 4
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Lista construtor vazio 14 capacidadeInicial
+LOAD_VAR este
+LOAD_VAR capacidadeInicial
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Lista Adicionar vazio 23 T:item
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR este
+GET_PROPERTY capacidade
+COMPARE_GE
+JUMP_IF_FALSE 8
+LOAD_VAR este
+CALL_METHOD RedimensionarArray 0
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR item
+SET_INDEX
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+ADD
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Obter T 9 inteiro:indice
+JUMP_IF_FALSE 4
+LOAD_CONST_STR "Índice fora dos limites"
+PRINT
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR indice
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Definir vazio 12 inteiro:indice T:item
+JUMP_IF_FALSE 5
+LOAD_CONST_STR "Índice fora dos limites"
+PRINT
+LOAD_CONST_NULL
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR indice
+LOAD_VAR item
+SET_INDEX
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista RemoverEm vazio 36 inteiro:indice
+JUMP_IF_FALSE 3
+LOAD_CONST_NULL
+RETURN
+LOAD_VAR indice
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+COMPARE_LT
+JUMP_IF_FALSE 27
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 5
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Remover booleano 26 T:item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 24
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+LOAD_VAR item
+COMPARE_EQ
+JUMP_IF_FALSE 19
+LOAD_VAR este
+LOAD_VAR i
+CALL_METHOD RemoverEm 1
+LOAD_CONST_BOOL true
+RETURN
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 2
+LOAD_CONST_BOOL false
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Contem booleano 23 T:item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 21
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+LOAD_VAR item
+COMPARE_EQ
+JUMP_IF_FALSE 16
+LOAD_CONST_BOOL true
+RETURN
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 2
+LOAD_CONST_BOOL false
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Limpar vazio 6 
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista IndiceDe inteiro 24 T:item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 21
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+LOAD_VAR item
+COMPARE_EQ
+JUMP_IF_FALSE 16
+LOAD_VAR i
+RETURN
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 2
+LOAD_CONST_INT 1
+NEGATE_INT
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista RedimensionarArray vazio 36 
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+LOAD_CONST_INT 2
+MUL
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+STORE_VAR novosItens
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 30
+LOAD_VAR novosItens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 13
+LOAD_VAR este
+LOAD_VAR novosItens
+SET_PROPERTY itens
+POP
+LOAD_CONST_NULL
+RETURN
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Console
+DEFINE_STATIC_METHOD Sistema.Console EscreverLinha vazio 2 texto:mensagem
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Console Escrever vazio 2 texto:mensagem
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Console LerLinha texto 2 
+LOAD_CONST_NULL
+RETURN
+DEFINE_CLASS Sistema.Data.Data NULO Ano,Mes,Dia,Hora,Minuto,Segundo|ano,mes,dia||
+DEFINE_METHOD Sistema.Data.Data construtor vazio 24 ano mes dia
+LOAD_VAR este
+LOAD_VAR ano
+SET_PROPERTY Ano
+POP
+LOAD_VAR este
+LOAD_VAR mes
+SET_PROPERTY Mes
+POP
+LOAD_VAR este
+LOAD_VAR dia
+SET_PROPERTY Dia
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY Hora
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY Minuto
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY Segundo
+POP
+DEFINE_METHOD Sistema.Data.Data construtor vazio 24 ano mes dia hora minuto segundo
+LOAD_VAR este
+LOAD_VAR ano
+SET_PROPERTY Ano
+POP
+LOAD_VAR este
+LOAD_VAR mes
+SET_PROPERTY Mes
+POP
+LOAD_VAR este
+LOAD_VAR dia
+SET_PROPERTY Dia
+POP
+LOAD_VAR este
+LOAD_VAR hora
+SET_PROPERTY Hora
+POP
+LOAD_VAR este
+LOAD_VAR minuto
+SET_PROPERTY Minuto
+POP
+LOAD_VAR este
+LOAD_VAR segundo
+SET_PROPERTY Segundo
+POP
+DEFINE_STATIC_METHOD Sistema.Data.Data Agora Data 2 
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Data.Data Hoje Data 2 
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Data.Data ParaTexto texto 19 
+LOAD_VAR este
+GET_PROPERTY Dia
+LOAD_CONST_STR "/"
+LOAD_VAR este
+GET_PROPERTY Mes
+LOAD_CONST_STR "/"
+LOAD_VAR este
+GET_PROPERTY Ano
+LOAD_CONST_STR " "
+LOAD_VAR este
+GET_PROPERTY Hora
+LOAD_CONST_STR ":"
+LOAD_VAR este
+GET_PROPERTY Minuto
+LOAD_CONST_STR ":"
+LOAD_VAR este
+GET_PROPERTY Segundo
+CONCAT 11
+RETURN
+DEFINE_METHOD Sistema.Data.Data Formatar texto 2 texto:formato
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Data.Data Igual booleano 1 Data:outra
+RETURN
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.IO.Arquivo
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo LerTexto texto 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo EscreverTexto vazio 2 texto:caminho texto:conteudo
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo AdicionarTexto vazio 2 texto:caminho texto:conteudo
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo Existe booleano 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo Excluir vazio 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo Copiar vazio 2 texto:origem texto:destino
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo Mover vazio 2 texto:origem texto:destino
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_CLASS Sistema.IO.Diretorio
+DEFINE_STATIC_METHOD Sistema.IO.Diretorio Existe booleano 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Diretorio Criar vazio 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Diretorio Excluir vazio 2 texto:caminho booleano:recursivo
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Diretorio ObterAtual texto 2 
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Diretorio DefinirAtual vazio 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_CLASS Sistema.Rede.ClienteHttp NULO BaseUrl|||
+DEFINE_METHOD Sistema.Rede.ClienteHttp construtor vazio 0 
+DEFINE_METHOD Sistema.Rede.ClienteHttp construtor vazio 4 baseUrl
+LOAD_VAR este
+LOAD_VAR baseUrl
+SET_PROPERTY BaseUrl
+POP
+DEFINE_METHOD Sistema.Rede.ClienteHttp Get texto 2 texto:url
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp Post texto 2 texto:url texto:corpo
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp Put texto 2 texto:url texto:corpo
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp Delete texto 2 texto:url
+LOAD_CONST_NULL
+RETURN
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Texto.Json
+DEFINE_STATIC_METHOD Sistema.Texto.Json Serializar texto 2 objeto:obj
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Texto.Json ValidarJson booleano 2 texto:json
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Texto.Json Formatar texto 2 texto:json
+LOAD_CONST_NULL
+RETURN
