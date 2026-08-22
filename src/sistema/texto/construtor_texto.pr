@@ -1,0 +1,25 @@
+espaco Sistema.Texto 
+{
+    // Equivalente ao StringBuilder, usado para manipular textos longos de forma eficiente
+    publico classe ConstrutorTexto 
+    {
+        // Construtor padrão
+        publico ConstrutorTexto() {}
+
+        // Anexa um texto ao final do construtor
+        [Nativo("ConstrutorTexto::Anexar")]
+        publico externo vazio Anexar(texto valor);
+        
+        // Anexa um texto seguido de uma quebra de linha
+        [Nativo("ConstrutorTexto::AnexarLinha")]
+        publico externo vazio AnexarLinha(texto valor);
+        
+        // Retorna a string final construída
+        [Nativo("ConstrutorTexto::ParaTexto")]
+        publico externo texto ParaTexto();
+        
+        // Limpa todo o conteúdo do construtor
+        [Nativo("ConstrutorTexto::Limpar")]
+        publico externo vazio Limpar();
+    }
+}

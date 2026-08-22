@@ -71,7 +71,7 @@ espaco Sistema.Colecoes
                 retorne;
             }
             
-            var i = indice;
+            inteiro i = indice;
             enquanto (i < este.tamanho - 1) 
             {
                 este.itens[i] = este.itens[i + 1];
@@ -84,7 +84,7 @@ espaco Sistema.Colecoes
         // Remover item por valor
         publico booleano Remover(T item) 
         {
-            var i = 0;
+            inteiro i = 0;
             enquanto (i < este.tamanho) {
                 se (este.itens[i] == item) {
                     este.RemoverEm(i);
@@ -98,7 +98,7 @@ espaco Sistema.Colecoes
         // Verificar se contém item
         publico booleano Contem(T item) 
         {
-            var i = 0;
+            inteiro i = 0;
             enquanto (i < este.tamanho) {
                 se (este.itens[i] == item) {
                     retorne verdadeiro;
@@ -117,7 +117,7 @@ espaco Sistema.Colecoes
         // Encontrar índice de um item
         publico inteiro IndiceDe(T item) 
         {
-            var i = 0;
+            inteiro i = 0;
             enquanto (i < este.tamanho) 
             {
                 se (este.itens[i] == item) {
@@ -132,7 +132,7 @@ espaco Sistema.Colecoes
         {
             este.capacidade = este.capacidade * 2;
             var novosItens = novo T[este.capacidade];
-            var i = 0;
+            inteiro i = 0;
             enquanto (i < este.tamanho) 
             {
                 novosItens[i] = este.itens[i];

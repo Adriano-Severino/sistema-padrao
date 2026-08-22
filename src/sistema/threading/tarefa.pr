@@ -1,0 +1,10 @@
+espaco Sistema.Threading 
+{
+    // Representa uma operação assíncrona (similar ao Task do C#)
+    publico estática classe Tarefa 
+    {
+        // Suspende a execução da tarefa atual por um tempo especificado
+        [Nativo("Tarefa::Atraso")]
+        publico estática assíncrona externo vazio Atraso(inteiro milissegundos);
+    }
+}

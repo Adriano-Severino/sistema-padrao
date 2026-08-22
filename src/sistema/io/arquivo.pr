@@ -14,6 +14,16 @@ espaco Sistema.IO
         [Nativo("Arquivo::AdicionarTexto")]
         publico estática externo vazio AdicionarTexto(texto caminho, texto conteudo);
         
+        // Versões Assíncronas
+        [Nativo("Arquivo::LerTextoAssincrono")]
+        publico estática assíncrona externo texto LerTextoAssincrono(texto caminho);
+        
+        [Nativo("Arquivo::EscreverTextoAssincrono")]
+        publico estática assíncrona externo vazio EscreverTextoAssincrono(texto caminho, texto conteudo);
+        
+        [Nativo("Arquivo::AdicionarTextoAssincrono")]
+        publico estática assíncrona externo vazio AdicionarTextoAssincrono(texto caminho, texto conteudo);
+        
         // Verificar se arquivo existe
         [Nativo("Arquivo::Existe")]
         publico estática externo booleano Existe(texto caminho);

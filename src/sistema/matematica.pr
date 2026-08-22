@@ -1,0 +1,26 @@
+espaco Sistema 
+{
+    // Funções e constantes matemáticas
+    publico estática classe Matematica 
+    {
+        // Retorna o valor absoluto de um número
+        [Nativo("Matematica::Abs")]
+        publico estática externo duplo Abs(duplo valor);
+        
+        // Retorna o maior de dois números
+        [Nativo("Matematica::Max")]
+        publico estática externo duplo Max(duplo a, duplo b);
+        
+        // Retorna o menor de dois números
+        [Nativo("Matematica::Min")]
+        publico estática externo duplo Min(duplo a, duplo b);
+        
+        // Retorna um número elevado a uma potência especificada
+        [Nativo("Matematica::Potencia")]
+        publico estática externo duplo Potencia(duplo valorBase, duplo expoente);
+        
+        // Retorna a raiz quadrada de um número
+        [Nativo("Matematica::RaizQuadrada")]
+        publico estática externo duplo RaizQuadrada(duplo valor);
+    }
+}

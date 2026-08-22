@@ -28,8 +28,11 @@ declare void @llvm.memset.p0i8.i64(i8*, i8, i64, i1)
 %class.Sistema_Data_Data = type { i8**, i32, i32, i32, i32, i32, i32 }
 %class.Sistema_IO_Arquivo = type { i8** }
 %class.Sistema_IO_Diretorio = type { i8** }
+%class.Sistema_Matematica = type { i8** }
 %class.Sistema_Rede_ClienteHttp = type { i8**, i8* }
+%class.Sistema_Texto_ConstrutorTexto = type { i8** }
 %class.Sistema_Texto_Json = type { i8** }
+%class.Sistema_Threading_Tarefa = type { i8** }
 %class.objeto = type { i8** }
 @.vtable.Sistema_Colecoes_Dicionario = global [0 x i8*] [  ], align 8
 @.vtable.Sistema_Colecoes_Lista = global [0 x i8*] [  ], align 8
@@ -37,8 +40,11 @@ declare void @llvm.memset.p0i8.i64(i8*, i8, i64, i1)
 @.vtable.Sistema_Data_Data = global [0 x i8*] [  ], align 8
 @.vtable.Sistema_IO_Arquivo = global [0 x i8*] [  ], align 8
 @.vtable.Sistema_IO_Diretorio = global [0 x i8*] [  ], align 8
+@.vtable.Sistema_Matematica = global [0 x i8*] [  ], align 8
 @.vtable.Sistema_Rede_ClienteHttp = global [0 x i8*] [  ], align 8
+@.vtable.Sistema_Texto_ConstrutorTexto = global [0 x i8*] [  ], align 8
 @.vtable.Sistema_Texto_Json = global [0 x i8*] [  ], align 8
+@.vtable.Sistema_Threading_Tarefa = global [0 x i8*] [  ], align 8
 @.vtable.objeto = global [0 x i8*] [  ], align 8
 @.str.0 = private unnamed_addr constant [1 x i8] c"\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"/\00", align 1
@@ -67,6 +73,52 @@ entry:
   %var.self = alloca %class.Sistema_Console*, align 8
   store %class.Sistema_Console* %param.self, %class.Sistema_Console** %var.self
   unreachable ; O método 'LerLinha' deve ter um retorno
+}
+define double @"Sistema_Matematica::Abs"(%class.Sistema_Matematica* %param.self, double %param.valor) { 
+entry:
+  %var.self = alloca %class.Sistema_Matematica*, align 8
+  store %class.Sistema_Matematica* %param.self, %class.Sistema_Matematica** %var.self
+  %var.valor = alloca double, align 8
+  store double %param.valor, double* %var.valor
+  unreachable ; O método 'Abs' deve ter um retorno
+}
+define double @"Sistema_Matematica::Max"(%class.Sistema_Matematica* %param.self, double %param.a, double %param.b) { 
+entry:
+  %var.self = alloca %class.Sistema_Matematica*, align 8
+  store %class.Sistema_Matematica* %param.self, %class.Sistema_Matematica** %var.self
+  %var.a = alloca double, align 8
+  store double %param.a, double* %var.a
+  %var.b = alloca double, align 8
+  store double %param.b, double* %var.b
+  unreachable ; O método 'Max' deve ter um retorno
+}
+define double @"Sistema_Matematica::Min"(%class.Sistema_Matematica* %param.self, double %param.a, double %param.b) { 
+entry:
+  %var.self = alloca %class.Sistema_Matematica*, align 8
+  store %class.Sistema_Matematica* %param.self, %class.Sistema_Matematica** %var.self
+  %var.a = alloca double, align 8
+  store double %param.a, double* %var.a
+  %var.b = alloca double, align 8
+  store double %param.b, double* %var.b
+  unreachable ; O método 'Min' deve ter um retorno
+}
+define double @"Sistema_Matematica::Potencia"(%class.Sistema_Matematica* %param.self, double %param.valorBase, double %param.expoente) { 
+entry:
+  %var.self = alloca %class.Sistema_Matematica*, align 8
+  store %class.Sistema_Matematica* %param.self, %class.Sistema_Matematica** %var.self
+  %var.valorBase = alloca double, align 8
+  store double %param.valorBase, double* %var.valorBase
+  %var.expoente = alloca double, align 8
+  store double %param.expoente, double* %var.expoente
+  unreachable ; O método 'Potencia' deve ter um retorno
+}
+define double @"Sistema_Matematica::RaizQuadrada"(%class.Sistema_Matematica* %param.self, double %param.valor) { 
+entry:
+  %var.self = alloca %class.Sistema_Matematica*, align 8
+  store %class.Sistema_Matematica* %param.self, %class.Sistema_Matematica** %var.self
+  %var.valor = alloca double, align 8
+  store double %param.valor, double* %var.valor
+  unreachable ; O método 'RaizQuadrada' deve ter um retorno
 }
 define %class.Sistema_Data_Data* @"Sistema_Data_Data::Agora"(%class.Sistema_Data_Data* %param.self) { 
 entry:
@@ -544,6 +596,34 @@ entry:
   store i8* %param.conteudo, i8** %var.conteudo
   ret void
 }
+define i8* @"Sistema_IO_Arquivo::LerTextoAssincrono"(%class.Sistema_IO_Arquivo* %param.self, i8* %param.caminho) { 
+entry:
+  %var.self = alloca %class.Sistema_IO_Arquivo*, align 8
+  store %class.Sistema_IO_Arquivo* %param.self, %class.Sistema_IO_Arquivo** %var.self
+  %var.caminho = alloca i8*, align 8
+  store i8* %param.caminho, i8** %var.caminho
+  unreachable ; O método 'LerTextoAssincrono' deve ter um retorno
+}
+define void @"Sistema_IO_Arquivo::EscreverTextoAssincrono"(%class.Sistema_IO_Arquivo* %param.self, i8* %param.caminho, i8* %param.conteudo) { 
+entry:
+  %var.self = alloca %class.Sistema_IO_Arquivo*, align 8
+  store %class.Sistema_IO_Arquivo* %param.self, %class.Sistema_IO_Arquivo** %var.self
+  %var.caminho = alloca i8*, align 8
+  store i8* %param.caminho, i8** %var.caminho
+  %var.conteudo = alloca i8*, align 8
+  store i8* %param.conteudo, i8** %var.conteudo
+  ret void
+}
+define void @"Sistema_IO_Arquivo::AdicionarTextoAssincrono"(%class.Sistema_IO_Arquivo* %param.self, i8* %param.caminho, i8* %param.conteudo) { 
+entry:
+  %var.self = alloca %class.Sistema_IO_Arquivo*, align 8
+  store %class.Sistema_IO_Arquivo* %param.self, %class.Sistema_IO_Arquivo** %var.self
+  %var.caminho = alloca i8*, align 8
+  store i8* %param.caminho, i8** %var.caminho
+  %var.conteudo = alloca i8*, align 8
+  store i8* %param.conteudo, i8** %var.conteudo
+  ret void
+}
 define i1 @"Sistema_IO_Arquivo::Existe"(%class.Sistema_IO_Arquivo* %param.self, i8* %param.caminho) { 
 entry:
   %var.self = alloca %class.Sistema_IO_Arquivo*, align 8
@@ -620,15 +700,15 @@ entry:
   store i8* %param.caminho, i8** %var.caminho
   ret void
 }
-define i8* @"Sistema_Rede_ClienteHttp::Get"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
+define i8* @"Sistema_Rede_ClienteHttp::Obter"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
 entry:
   %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
   store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
   %var.url = alloca i8*, align 8
   store i8* %param.url, i8** %var.url
-  unreachable ; O método 'Get' deve ter um retorno
+  unreachable ; O método 'Obter' deve ter um retorno
 }
-define i8* @"Sistema_Rede_ClienteHttp::Post"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
+define i8* @"Sistema_Rede_ClienteHttp::Enviar"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
 entry:
   %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
   store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
@@ -636,9 +716,9 @@ entry:
   store i8* %param.url, i8** %var.url
   %var.corpo = alloca i8*, align 8
   store i8* %param.corpo, i8** %var.corpo
-  unreachable ; O método 'Post' deve ter um retorno
+  unreachable ; O método 'Enviar' deve ter um retorno
 }
-define i8* @"Sistema_Rede_ClienteHttp::Put"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
+define i8* @"Sistema_Rede_ClienteHttp::Atualizar"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
 entry:
   %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
   store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
@@ -646,15 +726,51 @@ entry:
   store i8* %param.url, i8** %var.url
   %var.corpo = alloca i8*, align 8
   store i8* %param.corpo, i8** %var.corpo
-  unreachable ; O método 'Put' deve ter um retorno
+  unreachable ; O método 'Atualizar' deve ter um retorno
 }
-define i8* @"Sistema_Rede_ClienteHttp::Delete"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
+define i8* @"Sistema_Rede_ClienteHttp::Excluir"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
 entry:
   %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
   store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
   %var.url = alloca i8*, align 8
   store i8* %param.url, i8** %var.url
-  unreachable ; O método 'Delete' deve ter um retorno
+  unreachable ; O método 'Excluir' deve ter um retorno
+}
+define i8* @"Sistema_Rede_ClienteHttp::ObterAssincrono"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
+entry:
+  %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
+  store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
+  %var.url = alloca i8*, align 8
+  store i8* %param.url, i8** %var.url
+  unreachable ; O método 'ObterAssincrono' deve ter um retorno
+}
+define i8* @"Sistema_Rede_ClienteHttp::EnviarAssincrono"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
+entry:
+  %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
+  store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
+  %var.url = alloca i8*, align 8
+  store i8* %param.url, i8** %var.url
+  %var.corpo = alloca i8*, align 8
+  store i8* %param.corpo, i8** %var.corpo
+  unreachable ; O método 'EnviarAssincrono' deve ter um retorno
+}
+define i8* @"Sistema_Rede_ClienteHttp::AtualizarAssincrono"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url, i8* %param.corpo) { 
+entry:
+  %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
+  store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
+  %var.url = alloca i8*, align 8
+  store i8* %param.url, i8** %var.url
+  %var.corpo = alloca i8*, align 8
+  store i8* %param.corpo, i8** %var.corpo
+  unreachable ; O método 'AtualizarAssincrono' deve ter um retorno
+}
+define i8* @"Sistema_Rede_ClienteHttp::ExcluirAssincrono"(%class.Sistema_Rede_ClienteHttp* %param.self, i8* %param.url) { 
+entry:
+  %var.self = alloca %class.Sistema_Rede_ClienteHttp*, align 8
+  store %class.Sistema_Rede_ClienteHttp* %param.self, %class.Sistema_Rede_ClienteHttp** %var.self
+  %var.url = alloca i8*, align 8
+  store i8* %param.url, i8** %var.url
+  unreachable ; O método 'ExcluirAssincrono' deve ter um retorno
 }
 define void @"Sistema_Rede_ClienteHttp::construtor$0"(%class.Sistema_Rede_ClienteHttp* %param.self) { 
 entry:
@@ -674,6 +790,40 @@ entry:
   %tmp.277 = load %class.Sistema_Rede_ClienteHttp*, %class.Sistema_Rede_ClienteHttp* %var.self
   %tmp.278 = getelementptr inbounds %class.Sistema_Rede_ClienteHttp, %class.Sistema_Rede_ClienteHttp* %tmp.277, i32 0, i32 1
   store i8* %tmp.276, i8** %tmp.278
+  ret void
+}
+define void @"Sistema_Texto_ConstrutorTexto::Anexar"(%class.Sistema_Texto_ConstrutorTexto* %param.self, i8* %param.valor) { 
+entry:
+  %var.self = alloca %class.Sistema_Texto_ConstrutorTexto*, align 8
+  store %class.Sistema_Texto_ConstrutorTexto* %param.self, %class.Sistema_Texto_ConstrutorTexto** %var.self
+  %var.valor = alloca i8*, align 8
+  store i8* %param.valor, i8** %var.valor
+  ret void
+}
+define void @"Sistema_Texto_ConstrutorTexto::AnexarLinha"(%class.Sistema_Texto_ConstrutorTexto* %param.self, i8* %param.valor) { 
+entry:
+  %var.self = alloca %class.Sistema_Texto_ConstrutorTexto*, align 8
+  store %class.Sistema_Texto_ConstrutorTexto* %param.self, %class.Sistema_Texto_ConstrutorTexto** %var.self
+  %var.valor = alloca i8*, align 8
+  store i8* %param.valor, i8** %var.valor
+  ret void
+}
+define i8* @"Sistema_Texto_ConstrutorTexto::ParaTexto"(%class.Sistema_Texto_ConstrutorTexto* %param.self) { 
+entry:
+  %var.self = alloca %class.Sistema_Texto_ConstrutorTexto*, align 8
+  store %class.Sistema_Texto_ConstrutorTexto* %param.self, %class.Sistema_Texto_ConstrutorTexto** %var.self
+  unreachable ; O método 'ParaTexto' deve ter um retorno
+}
+define void @"Sistema_Texto_ConstrutorTexto::Limpar"(%class.Sistema_Texto_ConstrutorTexto* %param.self) { 
+entry:
+  %var.self = alloca %class.Sistema_Texto_ConstrutorTexto*, align 8
+  store %class.Sistema_Texto_ConstrutorTexto* %param.self, %class.Sistema_Texto_ConstrutorTexto** %var.self
+  ret void
+}
+define void @"Sistema_Texto_ConstrutorTexto::construtor$0"(%class.Sistema_Texto_ConstrutorTexto* %param.self) { 
+entry:
+  %var.self = alloca %class.Sistema_Texto_ConstrutorTexto*, align 8
+  store %class.Sistema_Texto_ConstrutorTexto* %param.self, %class.Sistema_Texto_ConstrutorTexto** %var.self
   ret void
 }
 define i8* @"Sistema_Texto_Json::Serializar"(%class.Sistema_Texto_Json* %param.self, %class.objeto* %param.obj) { 
@@ -699,4 +849,12 @@ entry:
   %var.json = alloca i8*, align 8
   store i8* %param.json, i8** %var.json
   unreachable ; O método 'Formatar' deve ter um retorno
+}
+define void @"Sistema_Threading_Tarefa::Atraso"(%class.Sistema_Threading_Tarefa* %param.self, i32 %param.milissegundos) { 
+entry:
+  %var.self = alloca %class.Sistema_Threading_Tarefa*, align 8
+  store %class.Sistema_Threading_Tarefa* %param.self, %class.Sistema_Threading_Tarefa** %var.self
+  %var.milissegundos = alloca i32, align 4
+  store i32 %param.milissegundos, i32* %var.milissegundos
+  ret void
 }

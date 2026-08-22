@@ -11,20 +11,30 @@ espaco Sistema.Rede {
             este.BaseUrl = baseUrl;
         }
         
-        // GET
-        [Nativo("ClienteHttp::Get")]
-        publico externo texto Get(texto url);
+        // Síncronos
+        [Nativo("ClienteHttp::Obter")]
+        publico externo texto Obter(texto url);
         
-        // POST
-        [Nativo("ClienteHttp::Post")]
-        publico externo texto Post(texto url, texto corpo);
+        [Nativo("ClienteHttp::Enviar")]
+        publico externo texto Enviar(texto url, texto corpo);
         
-        // PUT
-        [Nativo("ClienteHttp::Put")]
-        publico externo texto Put(texto url, texto corpo);
+        [Nativo("ClienteHttp::Atualizar")]
+        publico externo texto Atualizar(texto url, texto corpo);
         
-        // DELETE
-        [Nativo("ClienteHttp::Delete")]
-        publico externo texto Delete(texto url);
+        [Nativo("ClienteHttp::Excluir")]
+        publico externo texto Excluir(texto url);
+        
+        // Assíncronos
+        [Nativo("ClienteHttp::ObterAssincrono")]
+        publico assíncrona externo texto ObterAssincrono(texto url);
+        
+        [Nativo("ClienteHttp::EnviarAssincrono")]
+        publico assíncrona externo texto EnviarAssincrono(texto url, texto corpo);
+        
+        [Nativo("ClienteHttp::AtualizarAssincrono")]
+        publico assíncrona externo texto AtualizarAssincrono(texto url, texto corpo);
+        
+        [Nativo("ClienteHttp::ExcluirAssincrono")]
+        publico assíncrona externo texto ExcluirAssincrono(texto url);
     }
 }

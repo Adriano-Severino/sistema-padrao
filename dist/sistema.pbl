@@ -26,6 +26,12 @@ DEFINE_STATIC_CLASS Sistema.Console
 DEFINE_STATIC_NATIVE_METHOD Sistema.Console EscreverLinha vazio Console::EscreverLinha texto:mensagem
 DEFINE_STATIC_NATIVE_METHOD Sistema.Console Escrever vazio Console::Escrever texto:mensagem
 DEFINE_STATIC_NATIVE_METHOD Sistema.Console LerLinha texto Console::LerLinha 
+DEFINE_STATIC_CLASS Sistema.Matematica
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Abs duplo Matematica::Abs duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Max duplo Matematica::Max duplo:a duplo:b
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Min duplo Matematica::Min duplo:a duplo:b
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Potencia duplo Matematica::Potencia duplo:valorBase duplo:expoente
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica RaizQuadrada duplo Matematica::RaizQuadrada duplo:valor
 DEFINE_CLASS Sistema.Data.Data NULO
 PROPERTY Sistema.Data.Data Ano inteiro
 PROPERTY Sistema.Data.Data Mes inteiro
@@ -42,6 +48,9 @@ DEFINE_STATIC_CLASS Sistema.IO.Arquivo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTexto texto Arquivo::LerTexto texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTexto vazio Arquivo::EscreverTexto texto:caminho texto:conteudo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTexto vazio Arquivo::AdicionarTexto texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTextoAssincrono texto Arquivo::LerTextoAssincrono texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTextoAssincrono vazio Arquivo::EscreverTextoAssincrono texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTextoAssincrono vazio Arquivo::AdicionarTextoAssincrono texto:caminho texto:conteudo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Existe booleano Arquivo::Existe texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Excluir vazio Arquivo::Excluir texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Copiar vazio Arquivo::Copiar texto:origem texto:destino
@@ -54,14 +63,25 @@ DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio ObterAtual texto Diretorio::Obt
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio DefinirAtual vazio Diretorio::DefinirAtual texto:caminho
 DEFINE_CLASS Sistema.Rede.ClienteHttp NULO
 PROPERTY Sistema.Rede.ClienteHttp BaseUrl texto
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Get texto ClienteHttp::Get texto:url
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Post texto ClienteHttp::Post texto:url texto:corpo
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Put texto ClienteHttp::Put texto:url texto:corpo
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Delete texto ClienteHttp::Delete texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Obter texto ClienteHttp::Obter texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Enviar texto ClienteHttp::Enviar texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Atualizar texto ClienteHttp::Atualizar texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Excluir texto ClienteHttp::Excluir texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ObterAssincrono texto ClienteHttp::ObterAssincrono texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp EnviarAssincrono texto ClienteHttp::EnviarAssincrono texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp AtualizarAssincrono texto ClienteHttp::AtualizarAssincrono texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ExcluirAssincrono texto ClienteHttp::ExcluirAssincrono texto:url
+DEFINE_CLASS Sistema.Texto.ConstrutorTexto NULO
+DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto Anexar vazio ConstrutorTexto::Anexar texto:valor
+DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto AnexarLinha vazio ConstrutorTexto::AnexarLinha texto:valor
+DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto ParaTexto texto ConstrutorTexto::ParaTexto 
+DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto Limpar vazio ConstrutorTexto::Limpar 
 DEFINE_STATIC_CLASS Sistema.Texto.Json
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Serializar texto Json::Serializar objeto:obj
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json ValidarJson booleano Json::ValidarJson texto:json
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Formatar texto Json::Formatar texto:json
+DEFINE_STATIC_CLASS Sistema.Threading.Tarefa
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.Tarefa Atraso vazio Tarefa::Atraso inteiro:milissegundos
 
 [BYTECODE]
 
@@ -333,6 +353,22 @@ RETURN
 DEFINE_STATIC_METHOD Sistema.Console LerLinha texto 2 
 LOAD_CONST_NULL
 RETURN
+DEFINE_STATIC_CLASS Sistema.Matematica
+DEFINE_STATIC_METHOD Sistema.Matematica Abs duplo 2 duplo:valor
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Matematica Max duplo 2 duplo:a duplo:b
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Matematica Min duplo 2 duplo:a duplo:b
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Matematica Potencia duplo 2 duplo:valorBase duplo:expoente
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.Matematica RaizQuadrada duplo 2 duplo:valor
+LOAD_CONST_NULL
+RETURN
 DEFINE_CLASS Sistema.Data.Data NULO Ano,Mes,Dia,Hora,Minuto,Segundo|ano,mes,dia||
 DEFINE_METHOD Sistema.Data.Data construtor vazio 24 ano mes dia
 LOAD_VAR este
@@ -426,6 +462,15 @@ RETURN
 DEFINE_STATIC_METHOD Sistema.IO.Arquivo AdicionarTexto vazio 2 texto:caminho texto:conteudo
 LOAD_CONST_NULL
 RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo LerTextoAssincrono texto 2 texto:caminho
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo EscreverTextoAssincrono vazio 2 texto:caminho texto:conteudo
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_METHOD Sistema.IO.Arquivo AdicionarTextoAssincrono vazio 2 texto:caminho texto:conteudo
+LOAD_CONST_NULL
+RETURN
 DEFINE_STATIC_METHOD Sistema.IO.Arquivo Existe booleano 2 texto:caminho
 LOAD_CONST_NULL
 RETURN
@@ -461,16 +506,43 @@ LOAD_VAR este
 LOAD_VAR baseUrl
 SET_PROPERTY BaseUrl
 POP
-DEFINE_METHOD Sistema.Rede.ClienteHttp Get texto 2 texto:url
+DEFINE_METHOD Sistema.Rede.ClienteHttp Obter texto 2 texto:url
 LOAD_CONST_NULL
 RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Post texto 2 texto:url texto:corpo
+DEFINE_METHOD Sistema.Rede.ClienteHttp Enviar texto 2 texto:url texto:corpo
 LOAD_CONST_NULL
 RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Put texto 2 texto:url texto:corpo
+DEFINE_METHOD Sistema.Rede.ClienteHttp Atualizar texto 2 texto:url texto:corpo
 LOAD_CONST_NULL
 RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Delete texto 2 texto:url
+DEFINE_METHOD Sistema.Rede.ClienteHttp Excluir texto 2 texto:url
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp ObterAssincrono texto 2 texto:url
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp EnviarAssincrono texto 2 texto:url texto:corpo
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp AtualizarAssincrono texto 2 texto:url texto:corpo
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Rede.ClienteHttp ExcluirAssincrono texto 2 texto:url
+LOAD_CONST_NULL
+RETURN
+END_CLASS
+DEFINE_CLASS Sistema.Texto.ConstrutorTexto NULO |||
+DEFINE_METHOD Sistema.Texto.ConstrutorTexto construtor vazio 0 
+DEFINE_METHOD Sistema.Texto.ConstrutorTexto Anexar vazio 2 texto:valor
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Texto.ConstrutorTexto AnexarLinha vazio 2 texto:valor
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Texto.ConstrutorTexto ParaTexto texto 2 
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Texto.ConstrutorTexto Limpar vazio 2 
 LOAD_CONST_NULL
 RETURN
 END_CLASS
@@ -482,5 +554,9 @@ DEFINE_STATIC_METHOD Sistema.Texto.Json ValidarJson booleano 2 texto:json
 LOAD_CONST_NULL
 RETURN
 DEFINE_STATIC_METHOD Sistema.Texto.Json Formatar texto 2 texto:json
+LOAD_CONST_NULL
+RETURN
+DEFINE_STATIC_CLASS Sistema.Threading.Tarefa
+DEFINE_STATIC_METHOD Sistema.Threading.Tarefa Atraso vazio 2 inteiro:milissegundos
 LOAD_CONST_NULL
 RETURN
