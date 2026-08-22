@@ -12,7 +12,7 @@ A `sistema-padrao` deve ser a primeira e mais importante dependência para qualq
 
 - **Português Primeiro**: Todos os namespaces, classes, métodos, propriedades e tipos públicos devem ser nomeados em português brasileiro, de forma clara e idiomática. Por exemplo, `Sistema.IO.Arquivo` em vez de `System.IO.File`.
 - **Familiaridade com .NET/C#**: A estrutura de namespaces e a semântica das classes devem ser fortemente inspiradas na BCL do .NET. Isso facilita a transição de desenvolvedores C# e aproveita um design de API já consolidado. A ideia é traduzir o modelo mental, não apenas os nomes.
-- **Código Real e Compilável**: A biblioteca não é um conjunto de declarações, mas sim uma implementação funcional que é compilada para bytecode (`.pbc`) ou executavel no caso de LLVM.
+- **Código Real e Compilável**: A biblioteca não é um conjunto de declarações, mas sim uma implementação funcional que é compilada para bytecode (`.pbl`) ou executavel no caso de LLVM.
 - **Modularidade**: A biblioteca é organizada em namespaces que agrupam funcionalidades relacionadas, como `Sistema.IO` para entrada e saída, `Sistema.Colecoes` para estruturas de dados, e `Sistema.Texto` para manipulação de strings.
 
 ## Estrutura do Projeto
@@ -20,7 +20,7 @@ A `sistema-padrao` deve ser a primeira e mais importante dependência para qualq
 A estrutura do diretório `sistema-padrao` é organizada para facilitar a compilação como uma biblioteca autocontida.
 
 - `src/`: Contém todo o código-fonte da biblioteca, escrito em arquivos `.pr`. Os subdiretórios dentro de `src/` geralmente se alinham com os namespaces (ex: `src/IO/Arquivo.pr`).
-- `dist/`: Diretório de saída para os artefatos compilados. O principal artefato é `sistema.pbc` ou `sistema.exe` no caso de compilar para windows com LLVM ou binarios em outros sistema depende da arquitetura do target compilado.
+- `dist/`: Diretório de saída para os artefatos compilados. O principal artefato é `sistema.pbl` ou `sistema.exe` no caso de compilar para windows com LLVM ou binarios em outros sistema depende da arquitetura do target compilado.
 - `agent.md`: Este arquivo, que descreve o projeto para a IA.
 - `README.md`: Documentação para desenvolvedores humanos.
 
@@ -33,12 +33,12 @@ A `sistema-padrao` tem um ciclo de vida de compilação específico que se integ
     - Este comando faz o seguinte:
         - Encontra todos os arquivos `.pr` dentro do diretório `src/` da biblioteca.
         - Realiza a análise léxica, sintática e semântica de todos os arquivos juntos.
-        - Gera um único arquivo de bytecode de biblioteca: `dist/sistema.pbc`. Este arquivo contém as definições de tipos, assinaturas de métodos e o bytecode das implementações.
+        - Gera um único arquivo de bytecode de biblioteca: `dist/sistema.pbl`. Este arquivo contém as definições de tipos, assinaturas de métodos e o bytecode das implementações.
 
 2.  **Uso pelo Compilador Principal**:
-    - Ao compilar um programa de usuário (ex: `meu_programa.pr`), o compilador `compilador-portugues` primeiro localiza a biblioteca padrão compilada (`sistema.pbc`).
-    - O arquivo `main.rs` do compilador contém a lógica para isso (`assegurar_biblioteca_padrao_compilada`). Se `sistema.pbc` não existir, ele tentará compilar a biblioteca automaticamente.
-    - O módulo `library_loader.rs` é responsável por carregar o `sistema.pbc` e popular o `VerificadorTipos` (type checker) com todas as classes, métodos e namespaces da biblioteca padrão.
+    - Ao compilar um programa de usuário (ex: `meu_programa.pr`), o compilador `compilador-portugues` primeiro localiza a biblioteca padrão compilada (`sistema.pbl`).
+    - O arquivo `main.rs` do compilador contém a lógica para isso (`assegurar_biblioteca_padrao_compilada`). Se `sistema.pbl` não existir, ele tentará compilar a biblioteca automaticamente.
+    - O módulo `library_loader.rs` é responsável por carregar o `sistema.pbl` e popular o `VerificadorTipos` (type checker) com todas as classes, métodos e namespaces da biblioteca padrão.
 
 3.  **Uso no Código do Usuário**:
     - O programador pode então usar a diretiva `usando` para importar namespaces da biblioteca, como `usando Sistema.IO;`.
@@ -49,7 +49,7 @@ A `sistema-padrao` tem um ciclo de vida de compilação específico que se integ
 
 O script `compilador-portugues/testar_exemplo_com_stdlib.ps1` é a referência canônica para este fluxo:
 
-1.  Ele primeiro chama o compilador para compilar o projeto `sistema-padrao`, gerando `sistema.pbc`.
+1.  Ele primeiro chama o compilador para compilar o projeto `sistema-padrao`, gerando `sistema.pbl`.
     ```powershell
     & $CompiladorPath --compilar-biblioteca=$StdLibProjetoDir
     ```

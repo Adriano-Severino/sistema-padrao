@@ -12,19 +12,19 @@ espaco Sistema.Rede {
         }
         
         // GET
-        @Nativo("ClienteHttp::Get")
+        [Nativo("ClienteHttp::Get")]
         publico externo texto Get(texto url);
         
         // POST
-        @Nativo("ClienteHttp::Post")
+        [Nativo("ClienteHttp::Post")]
         publico externo texto Post(texto url, texto corpo);
         
         // PUT
-        @Nativo("ClienteHttp::Put")
+        [Nativo("ClienteHttp::Put")]
         publico externo texto Put(texto url, texto corpo);
         
         // DELETE
-        @Nativo("ClienteHttp::Delete")
+        [Nativo("ClienteHttp::Delete")]
         publico externo texto Delete(texto url);
     }
 }

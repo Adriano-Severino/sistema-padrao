@@ -15,23 +15,23 @@ espaco Sistema.Colecoes
         }
         
         // Adicionar ou atualizar
-        @Nativo("Dicionario::Adicionar")
+        [Nativo("Dicionario::Adicionar")]
         publico externo vazio Adicionar(TChave chave, TValor valor);
         
         // Obter valor
-        @Nativo("Dicionario::Obter")
+        [Nativo("Dicionario::Obter")]
         publico externo TValor Obter(TChave chave);
         
         // Verificar se contém chave
-        @Nativo("Dicionario::ContemChave")
+        [Nativo("Dicionario::ContemChave")]
         publico externo booleano ContemChave(TChave chave);
         
         // Remover entrada
-        @Nativo("Dicionario::Remover")
+        [Nativo("Dicionario::Remover")]
         publico externo booleano Remover(TChave chave);
         
         // Limpar
-        @Nativo("Dicionario::Limpar")
+        [Nativo("Dicionario::Limpar")]
         publico externo vazio Limpar();
     }
 }

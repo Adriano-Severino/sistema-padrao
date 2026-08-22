@@ -3,31 +3,31 @@ espaco Sistema.IO
     publico estática classe Arquivo 
     {
         // Ler todo o conteúdo de um arquivo como texto
-        @Nativo("Arquivo::LerTexto")
+        [Nativo("Arquivo::LerTexto")]
         publico estática externo texto LerTexto(texto caminho);
         
         // Escrever texto em um arquivo
-        @Nativo("Arquivo::EscreverTexto")
+        [Nativo("Arquivo::EscreverTexto")]
         publico estática externo vazio EscreverTexto(texto caminho, texto conteudo);
         
         // Adicionar texto ao final de um arquivo
-        @Nativo("Arquivo::AdicionarTexto")
+        [Nativo("Arquivo::AdicionarTexto")]
         publico estática externo vazio AdicionarTexto(texto caminho, texto conteudo);
         
         // Verificar se arquivo existe
-        @Nativo("Arquivo::Existe")
+        [Nativo("Arquivo::Existe")]
         publico estática externo booleano Existe(texto caminho);
         
         // Excluir arquivo
-        @Nativo("Arquivo::Excluir")
+        [Nativo("Arquivo::Excluir")]
         publico estática externo vazio Excluir(texto caminho);
         
         // Copiar arquivo
-        @Nativo("Arquivo::Copiar")
+        [Nativo("Arquivo::Copiar")]
         publico estática externo vazio Copiar(texto origem, texto destino);
         
         // Mover arquivo
-        @Nativo("Arquivo::Mover")
+        [Nativo("Arquivo::Mover")]
         publico estática externo vazio Mover(texto origem, texto destino);
     }
 }

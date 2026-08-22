@@ -3,15 +3,15 @@ espaco Sistema.Texto
     publico estática classe Json
     {
         // Serializar objeto para JSON
-        @Nativo("Json::Serializar")
+        [Nativo("Json::Serializar")]
         publico estática externo texto Serializar(objeto obj);
         
         // Verificar se string é JSON válido
-        @Nativo("Json::ValidarJson")
+        [Nativo("Json::ValidarJson")]
         publico estática externo booleano ValidarJson(texto json);
         
         // Formatar JSON com indentação
-        @Nativo("Json::Formatar")
+        [Nativo("Json::Formatar")]
         publico estática externo texto Formatar(texto json);
     }
 }

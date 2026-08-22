@@ -2,13 +2,13 @@ espaco Sistema {
     
     publico estática classe Console 
     {
-        @Nativo("Console::EscreverLinha")
+        [Nativo("Console::EscreverLinha")]
         publico estática externo vazio EscreverLinha(texto mensagem);
         
-        @Nativo("Console::Escrever")
+        [Nativo("Console::Escrever")]
         publico estática externo vazio Escrever(texto mensagem);
         
-        @Nativo("Console::LerLinha")
+        [Nativo("Console::LerLinha")]
         publico estática externo texto LerLinha();
     }
 }

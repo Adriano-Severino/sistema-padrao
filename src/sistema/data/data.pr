@@ -30,11 +30,11 @@ espaco Sistema.Data
         }
 
         // Data atual — implementação nativa
-        @Nativo("Data::Agora")
+        [Nativo("Data::Agora")]
         publico estática externo Data Agora();
         
         // Apenas data (sem hora) — implementação nativa
-        @Nativo("Data::Hoje")
+        [Nativo("Data::Hoje")]
         publico estática externo Data Hoje();
         
         // Formatar como string (sem formato — usa padrão dd/MM/aaaa HH:mm:ss)
@@ -44,7 +44,7 @@ espaco Sistema.Data
         }
         
         // Formatar com formato personalizado — implementação nativa
-        @Nativo("Data::Formatar")
+        [Nativo("Data::Formatar")]
         publico externo texto Formatar(texto formato);
         
         // Comparações

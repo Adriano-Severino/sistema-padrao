@@ -3,23 +3,23 @@ espaco Sistema.IO
     publico estática classe Diretorio 
     {
         // Verificar se diretório existe
-        @Nativo("Diretorio::Existe")
+        [Nativo("Diretorio::Existe")]
         publico estática externo booleano Existe(texto caminho);
         
         // Criar diretório
-        @Nativo("Diretorio::Criar")
+        [Nativo("Diretorio::Criar")]
         publico estática externo vazio Criar(texto caminho);
         
         // Excluir diretório
-        @Nativo("Diretorio::Excluir")
+        [Nativo("Diretorio::Excluir")]
         publico estática externo vazio Excluir(texto caminho, booleano recursivo);
         
         // Obter diretório atual
-        @Nativo("Diretorio::ObterAtual")
+        [Nativo("Diretorio::ObterAtual")]
         publico estática externo texto ObterAtual();
         
         // Definir diretório atual
-        @Nativo("Diretorio::DefinirAtual")
+        [Nativo("Diretorio::DefinirAtual")]
         publico estática externo vazio DefinirAtual(texto caminho);
     }
 }
