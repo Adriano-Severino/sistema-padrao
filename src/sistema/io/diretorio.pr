@@ -21,5 +21,13 @@ espaco Sistema.IO
         // Definir diretório atual
         [Nativo("Diretorio::DefinirAtual")]
         publico estática externo vazio DefinirAtual(texto caminho);
+        
+        // Listar arquivos de um diretório (somente o nome de cada arquivo)
+        [Nativo("Diretorio::ObterArquivos")]
+        publico estática externo texto[] ObterArquivos(texto caminho);
+        
+        // Listar subdiretórios de um diretório (somente o nome de cada um)
+        [Nativo("Diretorio::ObterDiretorios")]
+        publico estática externo texto[] ObterDiretorios(texto caminho);
     }
 }

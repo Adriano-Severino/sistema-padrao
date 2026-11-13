@@ -1,0 +1,100 @@
+espaco Sistema.Texto
+{
+    // Funções estáticas de manipulação de texto (equivalente ao System.String do .NET)
+    publico estática classe Texto
+    {
+        // Divide o texto em uma lista usando o separador informado
+        [Nativo("Texto::Dividir")]
+        publico estática externo texto[] Dividir(texto valor, texto separador);
+
+        // Divide o texto em linhas (quebra em \n, removendo \r)
+        [Nativo("Texto::DividirLinhas")]
+        publico estática externo texto[] DividirLinhas(texto valor);
+
+        // Junta os itens de uma lista em um único texto usando o separador
+        [Nativo("Texto::Juntar")]
+        publico estática externo texto Juntar(texto[] partes, texto separador);
+
+        // Remove espaços em branco no início e no fim
+        [Nativo("Texto::RemoverEspacos")]
+        publico estática externo texto RemoverEspacos(texto valor);
+
+        // Converte para letras maiúsculas
+        [Nativo("Texto::ParaMaiusculas")]
+        publico estática externo texto ParaMaiusculas(texto valor);
+
+        // Converte para letras minúsculas
+        [Nativo("Texto::ParaMinusculas")]
+        publico estática externo texto ParaMinusculas(texto valor);
+
+        // Substitui todas as ocorrências de um trecho por outro
+        [Nativo("Texto::Substituir")]
+        publico estática externo texto Substituir(texto valor, texto antigo, texto substituto);
+
+        // Verifica se o texto começa com o prefixo informado
+        [Nativo("Texto::ComecaCom")]
+        publico estática externo booleano ComecaCom(texto valor, texto prefixo);
+
+        // Verifica se o texto termina com o sufixo informado
+        [Nativo("Texto::TerminaCom")]
+        publico estática externo booleano TerminaCom(texto valor, texto sufixo);
+
+        // Verifica se o texto contém o trecho informado
+        [Nativo("Texto::Contem")]
+        publico estática externo booleano Contem(texto valor, texto trecho);
+
+        // Verifica se o texto é nulo ou vazio
+        [Nativo("Texto::VazioOuNulo")]
+        publico estática externo booleano VazioOuNulo(texto valor);
+
+        // Quantidade de caracteres do texto
+        [Nativo("Texto::Tamanho")]
+        publico estática externo inteiro Tamanho(texto valor);
+
+        // Extrai um trecho do texto. inicio é o índice inicial (base 0) e
+        // comprimento é a quantidade de caracteres; use -1 para "até o fim".
+        // Índices fora do intervalo são ajustados aos limites.
+        [Nativo("Texto::Subtexto")]
+        publico estática externo texto Subtexto(texto valor, inteiro inicio, inteiro comprimento);
+
+        // Índice da primeira ocorrência do trecho, ou -1 se não existir.
+        [Nativo("Texto::IndiceDe")]
+        publico estática externo inteiro IndiceDe(texto valor, texto trecho);
+
+        // Índice da última ocorrência do trecho, ou -1 se não existir.
+        [Nativo("Texto::UltimoIndiceDe")]
+        publico estática externo inteiro UltimoIndiceDe(texto valor, texto trecho);
+
+        // Retorna o texto com os caracteres na ordem inversa.
+        [Nativo("Texto::Inverter")]
+        publico estática externo texto Inverter(texto valor);
+
+        // Preenche à esquerda com o caractere informado até atingir a largura.
+        [Nativo("Texto::PadEsquerda")]
+        publico estática externo texto PadEsquerda(texto valor, inteiro largura, texto preenchimento);
+
+        // Preenche à direita com o caractere informado até atingir a largura.
+        [Nativo("Texto::PadDireita")]
+        publico estática externo texto PadDireita(texto valor, inteiro largura, texto preenchimento);
+
+        // Conta quantas vezes o trecho aparece no texto (sem sobreposição).
+        [Nativo("Texto::ContarOcorrencias")]
+        publico estática externo inteiro ContarOcorrencias(texto valor, texto trecho);
+
+        // Verifica se o texto está vazio.
+        [Nativo("Texto::EstaVazia")]
+        publico estática externo booleano EstaVazia(texto valor);
+
+        // Repete o texto a quantidade de vezes informada.
+        [Nativo("Texto::Repete")]
+        publico estática externo texto Repete(texto valor, inteiro vezes);
+
+        // Compara dois textos: -1 se a < b, 0 se iguais, 1 se a > b.
+        [Nativo("Texto::Comparar")]
+        publico estática externo inteiro Comparar(texto a, texto b);
+
+        // Verifica se dois textos são iguais ignorando maiúsculas/minúsculas.
+        [Nativo("Texto::IgualIgnoreCase")]
+        publico estática externo booleano IgualIgnoreCase(texto a, texto b);
+    }
+}

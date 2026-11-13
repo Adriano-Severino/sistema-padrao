@@ -6,5 +6,9 @@ espaco Sistema.Threading
         // Suspende a execução da tarefa atual por um tempo especificado
         [Nativo("Tarefa::Atraso")]
         publico estática assíncrona externo vazio Atraso(inteiro milissegundos);
+        
+        // Retorna uma tarefa já concluída com o valor informado
+        [Nativo("Tarefa::DeResultado")]
+        publico estática assíncrona externo objeto DeResultado(objeto valor);
     }
 }

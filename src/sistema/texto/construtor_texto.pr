@@ -21,5 +21,9 @@ espaco Sistema.Texto
         // Limpa todo o conteúdo do construtor
         [Nativo("ConstrutorTexto::Limpar")]
         publico externo vazio Limpar();
+
+        // Quantidade de caracteres no construtor
+        [Nativo("ConstrutorTexto::Comprimento")]
+        publico externo inteiro Comprimento();
     }
 }

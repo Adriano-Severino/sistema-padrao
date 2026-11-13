@@ -1,0 +1,23 @@
+espaco Sistema
+{
+    // Acesso a informações do ambiente de execução
+    // (similar a System.Environment do .NET).
+    publico estática classe Ambiente
+    {
+        // Retorna os argumentos passados ao programa (sem o nome do executável).
+        [Nativo("Ambiente::Argumentos")]
+        publico estática externo texto[] Argumentos();
+
+        // Retorna o valor de uma variável de ambiente, ou texto vazio se não existir.
+        [Nativo("Ambiente::VariavelAmbiente")]
+        publico estática externo texto VariavelAmbiente(texto nome);
+
+        // Define (ou sobrescreve) uma variável de ambiente do processo.
+        [Nativo("Ambiente::DefinirVariavelAmbiente")]
+        publico estática externo vazio DefinirVariavelAmbiente(texto nome, texto valor);
+
+        // Retorna o nome do computador onde o programa está executando.
+        [Nativo("Ambiente::NomeComputador")]
+        publico estática externo texto NomeComputador();
+    }
+}

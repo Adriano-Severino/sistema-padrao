@@ -1,0 +1,41 @@
+espaco Sistema.Texto
+{
+    // Expressões regulares (equivalente ao System.Text.RegularExpressions.Regex)
+    publico classe Regex
+    {
+        privado texto padrao;
+
+        publico Regex(texto padrao)
+        {
+            este.padrao = padrao;
+        }
+
+        // Verifica se o texto contém uma correspondência do padrão
+        [Nativo("Regex::Corresponde")]
+        publico externo booleano Corresponde(texto valor);
+
+        // Retorna o índice (em caracteres) da primeira correspondência, ou -1
+        [Nativo("Regex::Localizar")]
+        publico externo inteiro Localizar(texto valor);
+
+        // Substitui todas as correspondências do padrão pelo texto informado
+        [Nativo("Regex::Substituir")]
+        publico externo texto Substituir(texto valor, texto substituto);
+
+        // Divide o texto nas correspondências do padrão
+        [Nativo("Regex::Dividir")]
+        publico externo texto[] Dividir(texto valor);
+
+        // Quantidade de correspondências encontradas no texto
+        [Nativo("Regex::Contar")]
+        publico externo inteiro Contar(texto valor);
+
+        // Escapa metacaracteres de expressão regular em um texto literal
+        [Nativo("Regex::Escape")]
+        publico estática externo texto Escape(texto valor);
+
+        // Verifica se um padrão de expressão regular é válido
+        [Nativo("Regex::EhValido")]
+        publico estática externo booleano EhValido(texto padrao);
+    }
+}

@@ -1,0 +1,79 @@
+espaco Sistema.Data
+{
+    // Duração de tempo (equivalente ao TimeSpan do .NET).
+    // Representa um intervalo de tempo, não um horário de relógio.
+    // Crie instâncias com novo Horario(...) ou com as fábricas DeSegundos,
+    // DeMinutos, DeHoras e DeDias.
+    publico classe Horario
+    {
+        privado inteiro segundosTotais;
+
+        // Cria um Horario a partir do total de segundos (podem ser negativos).
+        publico Horario(inteiro segundos)
+        {
+            este.segundosTotais = segundos;
+        }
+
+        // Cria um Horario a partir de dias, horas, minutos e segundos.
+        publico Horario(inteiro dias, inteiro horas, inteiro minutos, inteiro segundos)
+        {
+            este.segundosTotais = dias * 86400 + horas * 3600 + minutos * 60 + segundos;
+        }
+
+        // Cria um Horario com a quantidade informada de segundos.
+        [Nativo("Horario::DeSegundos")]
+        publico estática externo Horario DeSegundos(inteiro segundos);
+
+        // Cria um Horario com a quantidade informada de minutos.
+        [Nativo("Horario::DeMinutos")]
+        publico estática externo Horario DeMinutos(inteiro minutos);
+
+        // Cria um Horario com a quantidade informada de horas.
+        [Nativo("Horario::DeHoras")]
+        publico estática externo Horario DeHoras(inteiro horas);
+
+        // Cria um Horario com a quantidade informada de dias.
+        [Nativo("Horario::DeDias")]
+        publico estática externo Horario DeDias(inteiro dias);
+
+        // Total de segundos da duração.
+        [Nativo("Horario::TotalSegundos")]
+        publico externo inteiro TotalSegundos();
+
+        // Total de minutos da duração (com fração truncada).
+        [Nativo("Horario::TotalMinutos")]
+        publico externo inteiro TotalMinutos();
+
+        // Total de horas da duração (com fração truncada).
+        [Nativo("Horario::TotalHoras")]
+        publico externo inteiro TotalHoras();
+
+        // Total de dias da duração (com fração truncada).
+        [Nativo("Horario::TotalDias")]
+        publico externo inteiro TotalDias();
+
+        // Formata como "HH:MM:SS" ou "d.HH:MM:SS" quando houver dias.
+        [Nativo("Horario::ParaTexto")]
+        publico externo texto ParaTexto();
+
+        // Retorna um novo Horario somando esta duração com outra.
+        [Nativo("Horario::Adicionar")]
+        publico externo Horario Adicionar(Horario outro);
+
+        // Retorna um novo Horario subtraindo outra duração desta.
+        [Nativo("Horario::Subtrair")]
+        publico externo Horario Subtrair(Horario outro);
+
+        // Verifica se duas durações são iguais.
+        [Nativo("Horario::Igual")]
+        publico externo booleano Igual(Horario outro);
+
+        // Verifica se esta duração é maior que a outra.
+        [Nativo("Horario::MaiorQue")]
+        publico externo booleano MaiorQue(Horario outro);
+
+        // Verifica se esta duração é menor que a outra.
+        [Nativo("Horario::MenorQue")]
+        publico externo booleano MenorQue(Horario outro);
+    }
+}

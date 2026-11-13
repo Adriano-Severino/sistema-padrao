@@ -1,0 +1,32 @@
+espaco Sistema.Threading 
+{
+    // Mutex para exclusão mútua (similar a System.Threading.Mutex do .NET).
+    // Como a VM é mono-thread por enquanto, o lock é lógico: Entrar marca o
+    // mutex como travado e Sair libera. Chamadas aninhadas sem Sair geram erro.
+    publico classe Mutex 
+    {
+        publico Mutex() 
+        {
+        }
+        
+        // Adquire o mutex. Erro se já estiver travado (evita deadlock silencioso).
+        [Nativo("Mutex::Entrar")]
+        publico externo vazio Entrar();
+        
+        // Tenta adquirir o mutex; retorna falso se já estiver travado.
+        [Nativo("Mutex::TentarEntrar")]
+        publico externo booleano TentarEntrar(inteiro milissegundos);
+        
+        // Libera o mutex.
+        [Nativo("Mutex::Sair")]
+        publico externo vazio Sair();
+        
+        // Indica se o mutex está travado.
+        [Nativo("Mutex::EstaTravado")]
+        publico externo booleano EstaTravado();
+        
+        // Libera o mutex (equivalente a Dispose/Sair final).
+        [Nativo("Mutex::Fechar")]
+        publico externo vazio Fechar();
+    }
+}

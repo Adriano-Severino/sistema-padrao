@@ -1,0 +1,35 @@
+espaco Sistema
+{
+    // Conversões entre texto e tipos primitivos
+    // (similar a System.Convert do .NET).
+    // Os métodos Para* retornam um valor padrão (0, 0.0, falso) quando a
+    // conversão falha; use EhNumero para validar antes quando necessário.
+    publico estática classe Conversao
+    {
+        // Converte texto para inteiro. Retorna 0 se falhar.
+        [Nativo("Conversao::ParaInteiro")]
+        publico estática externo inteiro ParaInteiro(texto valor);
+
+        // Converte texto para flutuante. Retorna 0.0 se falhar.
+        [Nativo("Conversao::ParaFlutuante")]
+        publico estática externo flutuante ParaFlutuante(texto valor);
+
+        // Converte texto para duplo. Retorna 0.0 se falhar.
+        [Nativo("Conversao::ParaDuplo")]
+        publico estática externo duplo ParaDuplo(texto valor);
+
+        // Converte texto para decimal. Retorna 0 se falhar.
+        [Nativo("Conversao::ParaDecimal")]
+        publico estática externo decimal ParaDecimal(texto valor);
+
+        // Converte texto para booleano.
+        // Aceita "verdadeiro"/"true"/"1"/"sim"/"yes" (e equivalentes negativos).
+        // Números diferentes de zero também resultam em verdadeiro.
+        [Nativo("Conversao::ParaBooleano")]
+        publico estática externo booleano ParaBooleano(texto valor);
+
+        // Verifica se o texto representa um número válido.
+        [Nativo("Conversao::EhNumero")]
+        publico estática externo booleano EhNumero(texto valor);
+    }
+}

@@ -1,0 +1,36 @@
+espaco Sistema.Aleatorio 
+{
+    // Gerador de números aleatórios (similar a System.Random do .NET).
+    // Use novo Aleatorio() para semente automática ou novo Aleatorio(semente)
+    // para resultados reproduzíveis.
+    publico classe Aleatorio 
+    {
+        publico Aleatorio() 
+        {
+        }
+        
+        publico Aleatorio(inteiro semente) 
+        {
+        }
+        
+        // Próximo inteiro não-negativo.
+        [Nativo("Aleatorio::Proximo")]
+        publico externo inteiro Proximo();
+        
+        // Inteiro aleatório em [minimo, maximo).
+        [Nativo("Aleatorio::ProximoEntre")]
+        publico externo inteiro ProximoEntre(inteiro minimo, inteiro maximo);
+        
+        // Flutuante aleatório em [0.0, 1.0).
+        [Nativo("Aleatorio::ProximoFlutuante")]
+        publico externo duplo ProximoFlutuante();
+        
+        // Booleano aleatório.
+        [Nativo("Aleatorio::ProximoBooleano")]
+        publico externo booleano ProximoBooleano();
+        
+        // Re-semeia o gerador.
+        [Nativo("Aleatorio::Reseed")]
+        publico externo vazio Reseed(inteiro semente);
+    }
+}

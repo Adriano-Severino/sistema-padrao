@@ -1,0 +1,126 @@
+espaco Sistema.Colecoes 
+{
+    // Conjunto genérico: coleção sem elementos duplicados
+    publico classe Conjunto<T> 
+    {
+        privado T[] itens;
+        privado inteiro tamanho;
+        privado inteiro capacidade;
+        
+        publico inteiro Tamanho 
+        { 
+            obter { retorne este.tamanho; }
+        }
+        
+        publico Conjunto() 
+        {
+            este.capacidade = 4;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        publico Conjunto(inteiro capacidadeInicial) 
+        {
+            este.capacidade = capacidadeInicial;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        // Adiciona um item se ainda não existir
+        publico booleano Adicionar(T item) 
+        {
+            se (este.Contem(item)) 
+            {
+                retorne falso;
+            }
+            se (este.tamanho >= este.capacidade) 
+            {
+                este.RedimensionarArray();
+            }
+            este.itens[este.tamanho] = item;
+            este.tamanho = este.tamanho + 1;
+            retorne verdadeiro;
+        }
+        
+        // Remove um item do conjunto
+        publico booleano Remover(T item) 
+        {
+            inteiro i = 0;
+            enquanto (i < este.tamanho) 
+            {
+                se (este.itens[i] == item) 
+                {
+                    inteiro j = i;
+                    enquanto (j < este.tamanho - 1) 
+                    {
+                        este.itens[j] = este.itens[j + 1];
+                        j = j + 1;
+                    }
+                    este.tamanho = este.tamanho - 1;
+                    retorne verdadeiro;
+                }
+                i = i + 1;
+            }
+            retorne falso;
+        }
+        
+        // Verifica se o item existe no conjunto
+        publico booleano Contem(T item) 
+        {
+            inteiro i = 0;
+            enquanto (i < este.tamanho) 
+            {
+                se (este.itens[i] == item) 
+                {
+                    retorne verdadeiro;
+                }
+                i = i + 1;
+            }
+            retorne falso;
+        }
+        
+        // Verifica se o conjunto está vazio
+        publico booleano EstaVazia() 
+        {
+            retorne este.tamanho == 0;
+        }
+        
+        // União com outro conjunto: retorna um novo Conjunto com todos os
+        // elementos deste conjunto e do outro (sem duplicados)
+        [Nativo("Conjunto::Uniao")]
+        publico externo Conjunto Uniao(Conjunto outro);
+        
+        // Interseção com outro conjunto: retorna um novo Conjunto apenas com
+        // os elementos presentes em ambos
+        [Nativo("Conjunto::Intersecao")]
+        publico externo Conjunto Intersecao(Conjunto outro);
+        
+        // Diferença com outro conjunto: retorna um novo Conjunto com os
+        // elementos deste conjunto que NÃO estão no outro
+        [Nativo("Conjunto::Diferenca")]
+        publico externo Conjunto Diferenca(Conjunto outro);
+        
+        // Converte o conjunto em um array
+        [Nativo("Conjunto::ParaArray")]
+        publico externo T[] ParaArray();
+        
+        // Limpa o conjunto
+        publico vazio Limpar() 
+        {
+            este.tamanho = 0;
+        }
+        
+        privado vazio RedimensionarArray() 
+        {
+            este.capacidade = este.capacidade * 2;
+            var novosItens = novo T[este.capacidade];
+            inteiro i = 0;
+            enquanto (i < este.tamanho) 
+            {
+                novosItens[i] = este.itens[i];
+                i = i + 1;
+            }
+            este.itens = novosItens;
+        }
+    }
+}

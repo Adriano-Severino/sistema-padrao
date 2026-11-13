@@ -128,6 +128,92 @@ espaco Sistema.Colecoes
             retorne -1;
         }
         
+        // Verificar se a lista está vazia
+        publico booleano EstaVazia() 
+        {
+            retorne este.tamanho == 0;
+        }
+        
+        // Retorna o primeiro elemento
+        publico T ObterPrimeiro() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            retorne este.itens[0];
+        }
+        
+        // Retorna o último elemento
+        publico T ObterUltimo() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            retorne este.itens[este.tamanho - 1];
+        }
+        
+        // Inverte a ordem dos elementos in-place
+        publico vazio Inverter() 
+        {
+            inteiro i = 0;
+            inteiro j = este.tamanho - 1;
+            enquanto (i < j) 
+            {
+                T temp = este.itens[i];
+                este.itens[i] = este.itens[j];
+                este.itens[j] = temp;
+                i = i + 1;
+                j = j - 1;
+            }
+        }
+        
+        // Ordena os elementos em ordem crescente (ordenação estável por comparação natural)
+        [Nativo("Lista::Ordenar")]
+        publico externo vazio Ordenar();
+        
+        // Ordena os elementos em ordem decrescente
+        [Nativo("Lista::OrdenarDecrescente")]
+        publico externo vazio OrdenarDecrescente();
+
+        // Insere um item na posição indicada, deslocando os demais
+        [Nativo("Lista::Inserir")]
+        publico externo vazio Inserir(inteiro indice, T item);
+
+        // Remove e retorna o último elemento
+        [Nativo("Lista::RemoverUltimo")]
+        publico externo T RemoverUltimo();
+
+        // Adiciona o item somente se ele ainda não existir na lista
+        [Nativo("Lista::AdicionarSeAusente")]
+        publico externo booleano AdicionarSeAusente(T item);
+
+        // Retorna os elementos como um array
+        [Nativo("Lista::ParaArray")]
+        publico externo T[] ParaArray();
+
+        // Retorna uma sublista do intervalo [inicio, fim)
+        publico Lista Recortar(inteiro inicio, inteiro fim) 
+        {
+            var sublista = novo Lista();
+            se (inicio < 0) 
+            {
+                inicio = 0;
+            }
+            se (fim > este.tamanho) 
+            {
+                fim = este.tamanho;
+            }
+            inteiro i = inicio;
+            enquanto (i < fim) 
+            {
+                sublista.Adicionar(este.itens[i]);
+                i = i + 1;
+            }
+            retorne sublista;
+        }
+        
         privado vazio RedimensionarArray() 
         {
             este.capacidade = este.capacidade * 2;

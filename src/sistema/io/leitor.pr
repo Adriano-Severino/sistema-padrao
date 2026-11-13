@@ -1,0 +1,31 @@
+espaco Sistema.IO 
+{
+    // Leitor de arquivo linha a linha (similar a StreamReader do .NET).
+    // Crie instâncias com Leitor.Abrir(caminho).
+    publico classe Leitor 
+    {
+        // Abre um arquivo para leitura e retorna um Leitor posicionado no início.
+        [Nativo("Leitor::Abrir")]
+        publico estática externo Leitor Abrir(texto caminho);
+        
+        // Lê a próxima linha (sem o caractere de quebra de linha).
+        [Nativo("Leitor::LerLinha")]
+        publico externo texto LerLinha();
+        
+        // Lê todo o conteúdo restante.
+        [Nativo("Leitor::LerResto")]
+        publico externo texto LerResto();
+        
+        // Indica se não há mais conteúdo para ler.
+        [Nativo("Leitor::EstaNoFim")]
+        publico externo booleano EstaNoFim();
+        
+        // Indica se há mais conteúdo para ler.
+        [Nativo("Leitor::TemMais")]
+        publico externo booleano TemMais();
+        
+        // Fecha o leitor.
+        [Nativo("Leitor::Fechar")]
+        publico externo vazio Fechar();
+    }
+}

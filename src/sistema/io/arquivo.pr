@@ -39,5 +39,21 @@ espaco Sistema.IO
         // Mover arquivo
         [Nativo("Arquivo::Mover")]
         publico estática externo vazio Mover(texto origem, texto destino);
+        
+        // Tamanho do arquivo em bytes
+        [Nativo("Arquivo::Tamanho")]
+        publico estática externo inteiro Tamanho(texto caminho);
+        
+        // Criar arquivo vazio (ou garantir que existe)
+        [Nativo("Arquivo::Criar")]
+        publico estática externo vazio Criar(texto caminho);
+        
+        // Ler todas as linhas de um arquivo
+        [Nativo("Arquivo::LerLinhas")]
+        publico estática externo texto[] LerLinhas(texto caminho);
+        
+        // Verificar se arquivo existe (assíncrono)
+        [Nativo("Arquivo::ExisteAssincrono")]
+        publico estática assíncrona externo booleano ExisteAssincrono(texto caminho);
     }
 }

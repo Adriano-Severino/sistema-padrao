@@ -1,0 +1,35 @@
+espaco Sistema.IO 
+{
+    // Informações sobre um arquivo (similar a FileInfo do .NET).
+    // Crie instâncias com InformacaoArquivo.Abrir(caminho).
+    publico classe InformacaoArquivo 
+    {
+        // Abre as informações de um arquivo.
+        [Nativo("InformacaoArquivo::Abrir")]
+        publico estática externo InformacaoArquivo Abrir(texto caminho);
+        
+        // Indica se o arquivo existe.
+        [Nativo("InformacaoArquivo::Existe")]
+        publico externo booleano Existe();
+        
+        // Nome do arquivo (com extensão).
+        [Nativo("InformacaoArquivo::Nome")]
+        publico externo texto Nome();
+        
+        // Caminho completo informado na abertura.
+        [Nativo("InformacaoArquivo::CaminhoCompleto")]
+        publico externo texto CaminhoCompleto();
+        
+        // Tamanho do arquivo em bytes.
+        [Nativo("InformacaoArquivo::Tamanho")]
+        publico externo inteiro Tamanho();
+        
+        // Data e hora da última modificação (formato ISO).
+        [Nativo("InformacaoArquivo::UltimaModificacao")]
+        publico externo texto UltimaModificacao();
+        
+        // Diretório que contém o arquivo.
+        [Nativo("InformacaoArquivo::Diretorio")]
+        publico externo texto Diretorio();
+    }
+}

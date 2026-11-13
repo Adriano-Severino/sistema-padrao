@@ -1,0 +1,15 @@
+espaco Sistema.Threading 
+{
+    // Pool de tarefas (similar a Task.Run / ThreadPool do .NET).
+    // Nesta versão, controla o grau máximo de paralelismo configurado.
+    publico estática classe PoolTarefas 
+    {
+        // Obtém o número máximo de tarefas paralelas configurado.
+        [Nativo("PoolTarefas::ObterMaximoParalelismo")]
+        publico estática externo inteiro ObterMaximoParalelismo();
+        
+        // Define o número máximo de tarefas paralelas.
+        [Nativo("PoolTarefas::DefinirMaximoParalelismo")]
+        publico estática externo vazio DefinirMaximoParalelismo(inteiro maximo);
+    }
+}

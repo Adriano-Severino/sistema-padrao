@@ -1,0 +1,18 @@
+espaco Sistema.Texto
+{
+    // Codificação de texto para bytes e vice-versa (UTF-8 por padrão)
+    publico estática classe Codificacao
+    {
+        // Converte texto para uma lista de bytes (inteiros 0-255) em UTF-8
+        [Nativo("Codificacao::ParaBytes")]
+        publico estática externo inteiro[] ParaBytes(texto valor);
+
+        // Converte uma lista de bytes (inteiros 0-255) para texto (UTF-8)
+        [Nativo("Codificacao::ParaTexto")]
+        publico estática externo texto ParaTexto(inteiro[] bytes);
+
+        // Quantidade de bytes que o texto ocupa em UTF-8
+        [Nativo("Codificacao::TamanhoBytes")]
+        publico estática externo inteiro TamanhoBytes(texto valor);
+    }
+}

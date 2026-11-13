@@ -1,15 +1,21 @@
 [biblioteca]
 nome = "Sistema"
-versao = "1.0.0"
+versao = "1.1.0"
 descricao = "Biblioteca padrão da linguagem portuguesa"
 autor = "Adriano Xavier"
 
 [modulos]
-io = ["arquivo", "diretorio", "leitor"]
-colecoes = ["lista", "dicionario", "fila"]
-rede = ["http", "socket"]
-texto = ["json", "regex"]
+console = ["console"]
+matematica = ["matematica"]
+ambiente = ["ambiente"]
+conversao = ["conversao"]
+io = ["arquivo", "diretorio", "leitor", "caminho", "informacao_arquivo"]
+colecoes = ["lista", "dicionario", "fila", "pilha", "conjunto"]
+rede = ["http", "socket", "dns"]
+texto = ["texto", "json", "regex", "codificacao", "construtor_texto"]
 data = ["data", "horario"]
+diagnosticos = ["cronometro"]
+threading = ["tarefa", "mutex", "temporizador", "pool_tarefas"]
 
 [dependencias]
 # Nenhuma dependência externa por enquanto

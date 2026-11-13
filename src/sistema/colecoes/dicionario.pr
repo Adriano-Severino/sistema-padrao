@@ -2,8 +2,6 @@ espaco Sistema.Colecoes
 {
     publico classe Dicionario<TChave, TValor> 
     {
-        privado inteiro tamanho;
-        
         publico inteiro Tamanho 
         { 
             obter { retorne este.tamanho; }
@@ -22,13 +20,29 @@ espaco Sistema.Colecoes
         [Nativo("Dicionario::Obter")]
         publico externo TValor Obter(TChave chave);
         
+        // Obter valor se a chave existir; retorna nulo caso contrário
+        [Nativo("Dicionario::TentarObter")]
+        publico externo TValor TentarObter(TChave chave);
+        
         // Verificar se contém chave
         [Nativo("Dicionario::ContemChave")]
         publico externo booleano ContemChave(TChave chave);
         
+        // Verificar se contém valor
+        [Nativo("Dicionario::ContemValor")]
+        publico externo booleano ContemValor(TValor valor);
+        
         // Remover entrada
         [Nativo("Dicionario::Remover")]
         publico externo booleano Remover(TChave chave);
+        
+        // Obter todas as chaves
+        [Nativo("Dicionario::Chaves")]
+        publico externo Lista Chaves();
+        
+        // Obter todos os valores
+        [Nativo("Dicionario::Valores")]
+        publico externo Lista Valores();
         
         // Limpar
         [Nativo("Dicionario::Limpar")]

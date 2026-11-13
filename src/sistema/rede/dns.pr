@@ -1,0 +1,16 @@
+espaco Sistema.Rede
+{
+    // Resolução de nomes DNS (similar a System.Net.Dns do .NET).
+    publico estática classe Dns
+    {
+        // Resolve um nome de host para o primeiro endereço IP encontrado.
+        // Retorna texto vazio se a resolução falhar.
+        [Nativo("Dns::Resolver")]
+        publico estática externo texto Resolver(texto host);
+
+        // Resolve um nome de host para todos os endereços IP encontrados.
+        // Retorna uma lista vazia se a resolução falhar.
+        [Nativo("Dns::ResolverTodos")]
+        publico estática externo texto[] ResolverTodos(texto host);
+    }
+}

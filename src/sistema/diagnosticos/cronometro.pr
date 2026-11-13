@@ -1,0 +1,37 @@
+espaco Sistema.Diagnostics
+{
+    // Cronômetro de alta precisão (similar a System.Diagnostics.Stopwatch do .NET).
+    // Crie instâncias com novo Cronometro() e chame Iniciar().
+    publico classe Cronometro
+    {
+        publico Cronometro() {}
+
+        // Inicia a contagem. Se já estiver rodando, não faz nada.
+        [Nativo("Cronometro::Iniciar")]
+        publico externo vazio Iniciar();
+
+        // Para a contagem, preservando o tempo decorrido.
+        [Nativo("Cronometro::Parar")]
+        publico externo vazio Parar();
+
+        // Reinicia a contagem do zero.
+        [Nativo("Cronometro::Reiniciar")]
+        publico externo vazio Reiniciar();
+
+        // Tempo decorrido em segundos (duplo).
+        [Nativo("Cronometro::DecorridoSegundos")]
+        publico externo duplo DecorridoSegundos();
+
+        // Tempo decorrido em milissegundos (inteiro).
+        [Nativo("Cronometro::DecorridoMilissegundos")]
+        publico externo inteiro DecorridoMilissegundos();
+
+        // Tempo decorrido em segundos (duplo); alias de DecorridoSegundos.
+        [Nativo("Cronometro::Decorrido")]
+        publico externo duplo Decorrido();
+
+        // Indica se o cronômetro está contando.
+        [Nativo("Cronometro::EstaExecutando")]
+        publico externo booleano EstaExecutando();
+    }
+}

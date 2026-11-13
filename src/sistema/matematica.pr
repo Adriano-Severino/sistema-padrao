@@ -22,5 +22,51 @@ espaco Sistema
         // Retorna a raiz quadrada de um número
         [Nativo("Matematica::RaizQuadrada")]
         publico estática externo duplo RaizQuadrada(duplo valor);
+
+        // Arredonda para o inteiro mais próximo
+        [Nativo("Matematica::Arredondar")]
+        publico estática externo duplo Arredondar(duplo valor);
+
+        // Trunca em direção a zero
+        [Nativo("Matematica::Truncar")]
+        publico estática externo duplo Truncar(duplo valor);
+
+        // Maior inteiro menor ou igual ao valor
+        [Nativo("Matematica::Piso")]
+        publico estática externo duplo Piso(duplo valor);
+
+        // Menor inteiro maior ou igual ao valor
+        [Nativo("Matematica::Teto")]
+        publico estática externo duplo Teto(duplo valor);
+
+        // Funções trigonométricas (ângulo em radianos)
+        [Nativo("Matematica::Seno")]
+        publico estática externo duplo Seno(duplo angulo);
+
+        [Nativo("Matematica::Cosseno")]
+        publico estática externo duplo Cosseno(duplo angulo);
+
+        [Nativo("Matematica::Tangente")]
+        publico estática externo duplo Tangente(duplo angulo);
+
+        // Logaritmo natural (base e)
+        [Nativo("Matematica::LogaritmoNatural")]
+        publico estática externo duplo LogaritmoNatural(duplo valor);
+
+        // Logaritmo base 10
+        [Nativo("Matematica::LogaritmoDez")]
+        publico estática externo duplo LogaritmoDez(duplo valor);
+
+        // e elevado à potência informada
+        [Nativo("Matematica::Expoente")]
+        publico estática externo duplo Expoente(duplo valor);
+
+        // Constante π
+        [Nativo("Matematica::Pi")]
+        publico estática externo duplo Pi();
+
+        // Constante de Euler e
+        [Nativo("Matematica::E")]
+        publico estática externo duplo E();
     }
 }

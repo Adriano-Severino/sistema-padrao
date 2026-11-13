@@ -1,0 +1,101 @@
+espaco Sistema.Colecoes 
+{
+    // Fila genérica FIFO (First-In, First-Out)
+    publico classe Fila<T> 
+    {
+        privado T[] itens;
+        privado inteiro tamanho;
+        privado inteiro capacidade;
+        
+        publico inteiro Tamanho 
+        { 
+            obter { retorne este.tamanho; }
+        }
+        
+        publico Fila() 
+        {
+            este.capacidade = 4;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        publico Fila(inteiro capacidadeInicial) 
+        {
+            este.capacidade = capacidadeInicial;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        // Adiciona um item ao final da fila
+        publico vazio Enfileirar(T item) 
+        {
+            se (este.tamanho >= este.capacidade) 
+            {
+                este.RedimensionarArray();
+            }
+            este.itens[este.tamanho] = item;
+            este.tamanho = este.tamanho + 1;
+        }
+        
+        // Remove e retorna o item do início da fila
+        publico T Desenfileirar() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            T item = este.itens[0];
+            inteiro i = 0;
+            enquanto (i < este.tamanho - 1) 
+            {
+                este.itens[i] = este.itens[i + 1];
+                i = i + 1;
+            }
+            este.tamanho = este.tamanho - 1;
+            retorne item;
+        }
+        
+        // Retorna o item do início sem remover
+        publico T Espiar() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            retorne este.itens[0];
+        }
+        
+        // Verifica se a fila está vazia
+        publico booleano EstaVazia() 
+        {
+            retorne este.tamanho == 0;
+        }
+        
+        // Converte a fila em uma Lista preservando a ordem (do início ao fim)
+        [Nativo("Fila::ParaLista")]
+        publico externo Lista ParaLista();
+        
+        // Converte a fila em um array preservando a ordem (do início ao fim)
+        [Nativo("Fila::ParaArray")]
+        publico externo T[] ParaArray();
+        
+        // Limpa a fila
+        publico vazio Limpar() 
+        {
+            este.tamanho = 0;
+        }
+        
+        privado vazio RedimensionarArray() 
+        {
+            este.capacidade = este.capacidade * 2;
+            var novosItens = novo T[este.capacidade];
+            inteiro i = 0;
+            enquanto (i < este.tamanho) 
+            {
+                novosItens[i] = este.itens[i];
+                i = i + 1;
+            }
+            este.itens = novosItens;
+        }
+    }
+}

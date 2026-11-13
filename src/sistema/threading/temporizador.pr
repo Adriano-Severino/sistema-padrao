@@ -1,0 +1,10 @@
+espaco Sistema.Threading 
+{
+    // Temporizador baseado em espera assíncrona (similar a Task.Delay do .NET).
+    publico estática classe Temporizador 
+    {
+        // Aguarda o número de milissegundos informado de forma assíncrona.
+        [Nativo("Temporizador::Aguardar")]
+        publico estática assíncrona externo vazio Aguardar(inteiro milissegundos);
+    }
+}

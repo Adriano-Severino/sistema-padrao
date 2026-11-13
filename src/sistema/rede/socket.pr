@@ -1,0 +1,54 @@
+espaco Sistema.Rede
+{
+    // Cliente TCP (similar a System.Net.Sockets.TcpClient do .NET).
+    // Crie instâncias com SocketTcp.Conectar(host, porta).
+    // O socket usa timeout de leitura de 5 segundos.
+    publico classe SocketTcp
+    {
+        privado SocketTcp() {}
+
+        // Conecta a um servidor TCP e retorna o socket pronto para uso.
+        [Nativo("SocketTcp::Conectar")]
+        publico estática externo SocketTcp Conectar(texto host, inteiro porta);
+
+        // Envia um texto para o servidor conectado.
+        [Nativo("SocketTcp::Enviar")]
+        publico externo vazio Enviar(texto dados);
+
+        // Recebe até 64KB de dados do servidor como texto.
+        // Retorna texto vazio em caso de timeout.
+        [Nativo("SocketTcp::Receber")]
+        publico externo texto Receber();
+
+        // Fecha a conexão e libera o socket.
+        [Nativo("SocketTcp::Fechar")]
+        publico externo vazio Fechar();
+
+        // Indica se o socket ainda está registrado como conectado.
+        [Nativo("SocketTcp::Conectado")]
+        publico externo booleano Conectado();
+    }
+
+    // Servidor TCP simples (aceita uma conexão por chamada a Aceitar).
+    // Crie instâncias com ServidorTcp.Ouvir(porta).
+    publico classe ServidorTcp
+    {
+        privado ServidorTcp() {}
+
+        // Inicia um servidor escutando na porta informada (em todas as interfaces).
+        [Nativo("ServidorTcp::Ouvir")]
+        publico estática externo ServidorTcp Ouvir(inteiro porta);
+
+        // Bloqueia até uma conexão chegar e retorna um SocketTcp para ela.
+        [Nativo("ServidorTcp::Aceitar")]
+        publico externo SocketTcp Aceitar();
+
+        // Fecha o servidor e para de aceitar novas conexões.
+        [Nativo("ServidorTcp::Fechar")]
+        publico externo vazio Fechar();
+
+        // Indica se o servidor ainda está aberto.
+        [Nativo("ServidorTcp::EstaAberto")]
+        publico externo booleano EstaAberto();
+    }
+}

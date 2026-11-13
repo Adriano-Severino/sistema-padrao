@@ -1,0 +1,38 @@
+espaco Sistema.IO 
+{
+    // Utilidades de manipulação de caminhos (similar a Path do .NET).
+    publico estática classe Caminho 
+    {
+        // Combina dois caminhos em um só.
+        [Nativo("Caminho::Combinar")]
+        publico estática externo texto Combinar(texto caminho1, texto caminho2);
+        
+        // Obtém o nome do arquivo (com extensão) a partir do caminho.
+        [Nativo("Caminho::NomeArquivo")]
+        publico estática externo texto NomeArquivo(texto caminho);
+        
+        // Obtém o nome do arquivo sem a extensão.
+        [Nativo("Caminho::NomeSemExtensao")]
+        publico estática externo texto NomeSemExtensao(texto caminho);
+        
+        // Obtém o diretório pai do caminho.
+        [Nativo("Caminho::DiretorioPai")]
+        publico estática externo texto DiretorioPai(texto caminho);
+        
+        // Obtém a extensão do arquivo (incluindo o ponto, ex.: ".txt").
+        [Nativo("Caminho::Extensao")]
+        publico estática externo texto Extensao(texto caminho);
+        
+        // Converte um caminho em caminho absoluto.
+        [Nativo("Caminho::Absoluto")]
+        publico estática externo texto Absoluto(texto caminho);
+        
+        // Conjunto de caracteres separadores de diretório.
+        [Nativo("Caminho::Separadores")]
+        publico estática externo texto Separadores();
+        
+        // Caracter separador de diretório do sistema.
+        [Nativo("Caminho::Separador")]
+        publico estática externo texto Separador();
+    }
+}

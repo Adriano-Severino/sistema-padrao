@@ -13,5 +13,9 @@ espaco Sistema.Texto
         // Formatar JSON com indentação
         [Nativo("Json::Formatar")]
         publico estática externo texto Formatar(texto json);
+
+        // Desserializar JSON para objeto
+        [Nativo("Json::Desserializar")]
+        publico estática externo objeto Desserializar(texto json);
     }
 }

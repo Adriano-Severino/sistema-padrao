@@ -1,0 +1,18 @@
+espaco Sistema 
+{
+    // Identificador global único (similar a System.Guid do .NET).
+    publico estática classe Guid 
+    {
+        // Gera um novo GUID no formato "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+        [Nativo("Guid::Novo")]
+        publico estática externo texto Novo();
+        
+        // Verifica se o texto tem formato de GUID válido.
+        [Nativo("Guid::EhValido")]
+        publico estática externo booleano EhValido(texto valor);
+        
+        // GUID vazio (todos os dígitos zero).
+        [Nativo("Guid::Vazio")]
+        publico estática externo texto Vazio();
+    }
+}

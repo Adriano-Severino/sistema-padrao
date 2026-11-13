@@ -1,0 +1,95 @@
+espaco Sistema.Colecoes 
+{
+    // Pilha genérica LIFO (Last-In, First-Out)
+    publico classe Pilha<T> 
+    {
+        privado T[] itens;
+        privado inteiro tamanho;
+        privado inteiro capacidade;
+        
+        publico inteiro Tamanho 
+        { 
+            obter { retorne este.tamanho; }
+        }
+        
+        publico Pilha() 
+        {
+            este.capacidade = 4;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        publico Pilha(inteiro capacidadeInicial) 
+        {
+            este.capacidade = capacidadeInicial;
+            este.itens = novo T[este.capacidade];
+            este.tamanho = 0;
+        }
+        
+        // Adiciona um item no topo da pilha
+        publico vazio Empilhar(T item) 
+        {
+            se (este.tamanho >= este.capacidade) 
+            {
+                este.RedimensionarArray();
+            }
+            este.itens[este.tamanho] = item;
+            este.tamanho = este.tamanho + 1;
+        }
+        
+        // Remove e retorna o item do topo da pilha
+        publico T Desempilhar() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            este.tamanho = este.tamanho - 1;
+            retorne este.itens[este.tamanho];
+        }
+        
+        // Retorna o item do topo sem remover
+        publico T EspiarTopo() 
+        {
+            se (este.tamanho == 0) 
+            {
+                retorne nulo;
+            }
+            retorne este.itens[este.tamanho - 1];
+        }
+        
+        // Verifica se a pilha está vazia
+        publico booleano EstaVazia() 
+        {
+            retorne este.tamanho == 0;
+        }
+        
+        // Converte a pilha em uma Lista preservando a ordem de inserção
+        // (o último elemento inserido fica no fim da lista)
+        [Nativo("Pilha::ParaLista")]
+        publico externo Lista ParaLista();
+        
+        // Converte a pilha em um array preservando a ordem de inserção
+        [Nativo("Pilha::ParaArray")]
+        publico externo T[] ParaArray();
+        
+        // Limpa a pilha
+        publico vazio Limpar() 
+        {
+            este.tamanho = 0;
+        }
+        
+        privado vazio RedimensionarArray() 
+        {
+            este.capacidade = este.capacidade * 2;
+            var novosItens = novo T[este.capacidade];
+            inteiro i = 0;
+            enquanto (i < este.tamanho) 
+            {
+                novosItens[i] = este.itens[i];
+                i = i + 1;
+            }
+            este.itens = novosItens;
+        }
+    }
+}

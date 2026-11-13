@@ -1,15 +1,85 @@
 [PBL]
 nome=Sistema
-versao=1.0.0
+versao=1.1.0
 
 [MANIFESTO]
+DEFINE_CLASS Sistema.Aleatorio.Aleatorio NULO
+DEFINE_NATIVE_METHOD Sistema.Aleatorio.Aleatorio Proximo inteiro Aleatorio::Proximo 
+DEFINE_NATIVE_METHOD Sistema.Aleatorio.Aleatorio ProximoEntre inteiro Aleatorio::ProximoEntre inteiro:minimo inteiro:maximo
+DEFINE_NATIVE_METHOD Sistema.Aleatorio.Aleatorio ProximoFlutuante duplo Aleatorio::ProximoFlutuante 
+DEFINE_NATIVE_METHOD Sistema.Aleatorio.Aleatorio ProximoBooleano booleano Aleatorio::ProximoBooleano 
+DEFINE_NATIVE_METHOD Sistema.Aleatorio.Aleatorio Reseed vazio Aleatorio::Reseed inteiro:semente
+DEFINE_STATIC_CLASS Sistema.Ambiente
+DEFINE_STATIC_NATIVE_METHOD Sistema.Ambiente Argumentos lista<texto> Ambiente::Argumentos 
+DEFINE_STATIC_NATIVE_METHOD Sistema.Ambiente VariavelAmbiente texto Ambiente::VariavelAmbiente texto:nome
+DEFINE_STATIC_NATIVE_METHOD Sistema.Ambiente DefinirVariavelAmbiente vazio Ambiente::DefinirVariavelAmbiente texto:nome texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Ambiente NomeComputador texto Ambiente::NomeComputador 
+DEFINE_STATIC_CLASS Sistema.Console
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console EscreverLinha vazio Console::EscreverLinha texto:mensagem
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console Escrever vazio Console::Escrever texto:mensagem
+DEFINE_STATIC_NATIVE_METHOD Sistema.Console LerLinha texto Console::LerLinha 
+DEFINE_STATIC_CLASS Sistema.Conversao
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao ParaInteiro inteiro Conversao::ParaInteiro texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao ParaFlutuante flutuante Conversao::ParaFlutuante texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao ParaDuplo duplo Conversao::ParaDuplo texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao ParaDecimal decimal Conversao::ParaDecimal texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao ParaBooleano booleano Conversao::ParaBooleano texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Conversao EhNumero booleano Conversao::EhNumero texto:valor
+DEFINE_STATIC_CLASS Sistema.Guid
+DEFINE_STATIC_NATIVE_METHOD Sistema.Guid Novo texto Guid::Novo 
+DEFINE_STATIC_NATIVE_METHOD Sistema.Guid EhValido booleano Guid::EhValido texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Guid Vazio texto Guid::Vazio 
+DEFINE_STATIC_CLASS Sistema.Matematica
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Abs duplo Matematica::Abs duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Max duplo Matematica::Max duplo:a duplo:b
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Min duplo Matematica::Min duplo:a duplo:b
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Potencia duplo Matematica::Potencia duplo:valorBase duplo:expoente
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica RaizQuadrada duplo Matematica::RaizQuadrada duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Arredondar duplo Matematica::Arredondar duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Truncar duplo Matematica::Truncar duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Piso duplo Matematica::Piso duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Teto duplo Matematica::Teto duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Seno duplo Matematica::Seno duplo:angulo
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Cosseno duplo Matematica::Cosseno duplo:angulo
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Tangente duplo Matematica::Tangente duplo:angulo
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica LogaritmoNatural duplo Matematica::LogaritmoNatural duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica LogaritmoDez duplo Matematica::LogaritmoDez duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Expoente duplo Matematica::Expoente duplo:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Pi duplo Matematica::Pi 
+DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica E duplo Matematica::E 
+DEFINE_CLASS Sistema.Colecoes.Conjunto NULO
+PROPERTY Sistema.Colecoes.Conjunto Tamanho inteiro
+DEFINE_METHOD Sistema.Colecoes.Conjunto Adicionar booleano 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Conjunto Remover booleano 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Conjunto Contem booleano 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Conjunto EstaVazia booleano 0 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Conjunto Uniao Conjunto Conjunto::Uniao Conjunto:outro
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Conjunto Intersecao Conjunto Conjunto::Intersecao Conjunto:outro
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Conjunto Diferenca Conjunto Conjunto::Diferenca Conjunto:outro
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Conjunto ParaArray lista<T> Conjunto::ParaArray 
+DEFINE_METHOD Sistema.Colecoes.Conjunto Limpar vazio 0 
+DEFINE_METHOD Sistema.Colecoes.Conjunto RedimensionarArray vazio 0 
 DEFINE_CLASS Sistema.Colecoes.Dicionario NULO
 PROPERTY Sistema.Colecoes.Dicionario Tamanho inteiro
 DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Adicionar vazio Dicionario::Adicionar TChave:chave TValor:valor
 DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Obter TValor Dicionario::Obter TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario TentarObter TValor Dicionario::TentarObter TChave:chave
 DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario ContemChave booleano Dicionario::ContemChave TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario ContemValor booleano Dicionario::ContemValor TValor:valor
 DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Remover booleano Dicionario::Remover TChave:chave
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Chaves Lista Dicionario::Chaves 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Valores Lista Dicionario::Valores 
 DEFINE_NATIVE_METHOD Sistema.Colecoes.Dicionario Limpar vazio Dicionario::Limpar 
+DEFINE_CLASS Sistema.Colecoes.Fila NULO
+PROPERTY Sistema.Colecoes.Fila Tamanho inteiro
+DEFINE_METHOD Sistema.Colecoes.Fila Enfileirar vazio 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Fila Desenfileirar T 0 
+DEFINE_METHOD Sistema.Colecoes.Fila Espiar T 0 
+DEFINE_METHOD Sistema.Colecoes.Fila EstaVazia booleano 0 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Fila ParaLista Lista Fila::ParaLista 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Fila ParaArray lista<T> Fila::ParaArray 
+DEFINE_METHOD Sistema.Colecoes.Fila Limpar vazio 0 
+DEFINE_METHOD Sistema.Colecoes.Fila RedimensionarArray vazio 0 
 DEFINE_CLASS Sistema.Colecoes.Lista NULO
 PROPERTY Sistema.Colecoes.Lista Tamanho inteiro
 PROPERTY Sistema.Colecoes.Lista Capacidade inteiro
@@ -21,17 +91,28 @@ DEFINE_METHOD Sistema.Colecoes.Lista Remover booleano 1 T:item
 DEFINE_METHOD Sistema.Colecoes.Lista Contem booleano 1 T:item
 DEFINE_METHOD Sistema.Colecoes.Lista Limpar vazio 0 
 DEFINE_METHOD Sistema.Colecoes.Lista IndiceDe inteiro 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Lista EstaVazia booleano 0 
+DEFINE_METHOD Sistema.Colecoes.Lista ObterPrimeiro T 0 
+DEFINE_METHOD Sistema.Colecoes.Lista ObterUltimo T 0 
+DEFINE_METHOD Sistema.Colecoes.Lista Inverter vazio 0 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista Ordenar vazio Lista::Ordenar 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista OrdenarDecrescente vazio Lista::OrdenarDecrescente 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista Inserir vazio Lista::Inserir inteiro:indice T:item
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista RemoverUltimo T Lista::RemoverUltimo 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista AdicionarSeAusente booleano Lista::AdicionarSeAusente T:item
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Lista ParaArray lista<T> Lista::ParaArray 
+DEFINE_METHOD Sistema.Colecoes.Lista Recortar Lista 2 inteiro:inicio inteiro:fim
 DEFINE_METHOD Sistema.Colecoes.Lista RedimensionarArray vazio 0 
-DEFINE_STATIC_CLASS Sistema.Console
-DEFINE_STATIC_NATIVE_METHOD Sistema.Console EscreverLinha vazio Console::EscreverLinha texto:mensagem
-DEFINE_STATIC_NATIVE_METHOD Sistema.Console Escrever vazio Console::Escrever texto:mensagem
-DEFINE_STATIC_NATIVE_METHOD Sistema.Console LerLinha texto Console::LerLinha 
-DEFINE_STATIC_CLASS Sistema.Matematica
-DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Abs duplo Matematica::Abs duplo:valor
-DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Max duplo Matematica::Max duplo:a duplo:b
-DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Min duplo Matematica::Min duplo:a duplo:b
-DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica Potencia duplo Matematica::Potencia duplo:valorBase duplo:expoente
-DEFINE_STATIC_NATIVE_METHOD Sistema.Matematica RaizQuadrada duplo Matematica::RaizQuadrada duplo:valor
+DEFINE_CLASS Sistema.Colecoes.Pilha NULO
+PROPERTY Sistema.Colecoes.Pilha Tamanho inteiro
+DEFINE_METHOD Sistema.Colecoes.Pilha Empilhar vazio 1 T:item
+DEFINE_METHOD Sistema.Colecoes.Pilha Desempilhar T 0 
+DEFINE_METHOD Sistema.Colecoes.Pilha EspiarTopo T 0 
+DEFINE_METHOD Sistema.Colecoes.Pilha EstaVazia booleano 0 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Pilha ParaLista Lista Pilha::ParaLista 
+DEFINE_NATIVE_METHOD Sistema.Colecoes.Pilha ParaArray lista<T> Pilha::ParaArray 
+DEFINE_METHOD Sistema.Colecoes.Pilha Limpar vazio 0 
+DEFINE_METHOD Sistema.Colecoes.Pilha RedimensionarArray vazio 0 
 DEFINE_CLASS Sistema.Data.Data NULO
 PROPERTY Sistema.Data.Data Ano inteiro
 PROPERTY Sistema.Data.Data Mes inteiro
@@ -44,66 +125,531 @@ DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Data Hoje Data Data::Hoje
 DEFINE_METHOD Sistema.Data.Data ParaTexto texto 0 
 DEFINE_NATIVE_METHOD Sistema.Data.Data Formatar texto Data::Formatar texto:formato
 DEFINE_METHOD Sistema.Data.Data Igual booleano 1 Data:outra
+DEFINE_CLASS Sistema.Data.Horario NULO
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Horario DeSegundos Horario Horario::DeSegundos inteiro:segundos
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Horario DeMinutos Horario Horario::DeMinutos inteiro:minutos
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Horario DeHoras Horario Horario::DeHoras inteiro:horas
+DEFINE_STATIC_NATIVE_METHOD Sistema.Data.Horario DeDias Horario Horario::DeDias inteiro:dias
+DEFINE_NATIVE_METHOD Sistema.Data.Horario TotalSegundos inteiro Horario::TotalSegundos 
+DEFINE_NATIVE_METHOD Sistema.Data.Horario TotalMinutos inteiro Horario::TotalMinutos 
+DEFINE_NATIVE_METHOD Sistema.Data.Horario TotalHoras inteiro Horario::TotalHoras 
+DEFINE_NATIVE_METHOD Sistema.Data.Horario TotalDias inteiro Horario::TotalDias 
+DEFINE_NATIVE_METHOD Sistema.Data.Horario ParaTexto texto Horario::ParaTexto 
+DEFINE_NATIVE_METHOD Sistema.Data.Horario Adicionar Horario Horario::Adicionar Horario:outro
+DEFINE_NATIVE_METHOD Sistema.Data.Horario Subtrair Horario Horario::Subtrair Horario:outro
+DEFINE_NATIVE_METHOD Sistema.Data.Horario Igual booleano Horario::Igual Horario:outro
+DEFINE_NATIVE_METHOD Sistema.Data.Horario MaiorQue booleano Horario::MaiorQue Horario:outro
+DEFINE_NATIVE_METHOD Sistema.Data.Horario MenorQue booleano Horario::MenorQue Horario:outro
+DEFINE_CLASS Sistema.Diagnostics.Cronometro NULO
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro Iniciar vazio Cronometro::Iniciar 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro Parar vazio Cronometro::Parar 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro Reiniciar vazio Cronometro::Reiniciar 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro DecorridoSegundos duplo Cronometro::DecorridoSegundos 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro DecorridoMilissegundos inteiro Cronometro::DecorridoMilissegundos 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro Decorrido duplo Cronometro::Decorrido 
+DEFINE_NATIVE_METHOD Sistema.Diagnostics.Cronometro EstaExecutando booleano Cronometro::EstaExecutando 
 DEFINE_STATIC_CLASS Sistema.IO.Arquivo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTexto texto Arquivo::LerTexto texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTexto vazio Arquivo::EscreverTexto texto:caminho texto:conteudo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTexto vazio Arquivo::AdicionarTexto texto:caminho texto:conteudo
-DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTextoAssincrono texto Arquivo::LerTextoAssincrono texto:caminho
-DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTextoAssincrono vazio Arquivo::EscreverTextoAssincrono texto:caminho texto:conteudo
-DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTextoAssincrono vazio Arquivo::AdicionarTextoAssincrono texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerTextoAssincrono texto Arquivo::LerTextoAssincrono ASSINCRONO texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo EscreverTextoAssincrono vazio Arquivo::EscreverTextoAssincrono ASSINCRONO texto:caminho texto:conteudo
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo AdicionarTextoAssincrono vazio Arquivo::AdicionarTextoAssincrono ASSINCRONO texto:caminho texto:conteudo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Existe booleano Arquivo::Existe texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Excluir vazio Arquivo::Excluir texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Copiar vazio Arquivo::Copiar texto:origem texto:destino
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Mover vazio Arquivo::Mover texto:origem texto:destino
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Tamanho inteiro Arquivo::Tamanho texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo Criar vazio Arquivo::Criar texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo LerLinhas lista<texto> Arquivo::LerLinhas texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Arquivo ExisteAssincrono booleano Arquivo::ExisteAssincrono ASSINCRONO texto:caminho
+DEFINE_STATIC_CLASS Sistema.IO.Caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho Combinar texto Caminho::Combinar texto:caminho1 texto:caminho2
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho NomeArquivo texto Caminho::NomeArquivo texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho NomeSemExtensao texto Caminho::NomeSemExtensao texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho DiretorioPai texto Caminho::DiretorioPai texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho Extensao texto Caminho::Extensao texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho Absoluto texto Caminho::Absoluto texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho Separadores texto Caminho::Separadores 
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Caminho Separador texto Caminho::Separador 
 DEFINE_STATIC_CLASS Sistema.IO.Diretorio
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Existe booleano Diretorio::Existe texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Criar vazio Diretorio::Criar texto:caminho
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio Excluir vazio Diretorio::Excluir texto:caminho booleano:recursivo
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio ObterAtual texto Diretorio::ObterAtual 
 DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio DefinirAtual vazio Diretorio::DefinirAtual texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio ObterArquivos lista<texto> Diretorio::ObterArquivos texto:caminho
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Diretorio ObterDiretorios lista<texto> Diretorio::ObterDiretorios texto:caminho
+DEFINE_CLASS Sistema.IO.InformacaoArquivo NULO
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.InformacaoArquivo Abrir InformacaoArquivo InformacaoArquivo::Abrir texto:caminho
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo Existe booleano InformacaoArquivo::Existe 
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo Nome texto InformacaoArquivo::Nome 
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo CaminhoCompleto texto InformacaoArquivo::CaminhoCompleto 
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo Tamanho inteiro InformacaoArquivo::Tamanho 
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo UltimaModificacao texto InformacaoArquivo::UltimaModificacao 
+DEFINE_NATIVE_METHOD Sistema.IO.InformacaoArquivo Diretorio texto InformacaoArquivo::Diretorio 
+DEFINE_CLASS Sistema.IO.Leitor NULO
+DEFINE_STATIC_NATIVE_METHOD Sistema.IO.Leitor Abrir Leitor Leitor::Abrir texto:caminho
+DEFINE_NATIVE_METHOD Sistema.IO.Leitor LerLinha texto Leitor::LerLinha 
+DEFINE_NATIVE_METHOD Sistema.IO.Leitor LerResto texto Leitor::LerResto 
+DEFINE_NATIVE_METHOD Sistema.IO.Leitor EstaNoFim booleano Leitor::EstaNoFim 
+DEFINE_NATIVE_METHOD Sistema.IO.Leitor TemMais booleano Leitor::TemMais 
+DEFINE_NATIVE_METHOD Sistema.IO.Leitor Fechar vazio Leitor::Fechar 
+DEFINE_STATIC_CLASS Sistema.Rede.Dns
+DEFINE_STATIC_NATIVE_METHOD Sistema.Rede.Dns Resolver texto Dns::Resolver texto:host
+DEFINE_STATIC_NATIVE_METHOD Sistema.Rede.Dns ResolverTodos lista<texto> Dns::ResolverTodos texto:host
 DEFINE_CLASS Sistema.Rede.ClienteHttp NULO
 PROPERTY Sistema.Rede.ClienteHttp BaseUrl texto
 DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Obter texto ClienteHttp::Obter texto:url
 DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Enviar texto ClienteHttp::Enviar texto:url texto:corpo
 DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Atualizar texto ClienteHttp::Atualizar texto:url texto:corpo
 DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp Excluir texto ClienteHttp::Excluir texto:url
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ObterAssincrono texto ClienteHttp::ObterAssincrono texto:url
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp EnviarAssincrono texto ClienteHttp::EnviarAssincrono texto:url texto:corpo
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp AtualizarAssincrono texto ClienteHttp::AtualizarAssincrono texto:url texto:corpo
-DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ExcluirAssincrono texto ClienteHttp::ExcluirAssincrono texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ObterAssincrono texto ClienteHttp::ObterAssincrono ASSINCRONO texto:url
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp EnviarAssincrono texto ClienteHttp::EnviarAssincrono ASSINCRONO texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp AtualizarAssincrono texto ClienteHttp::AtualizarAssincrono ASSINCRONO texto:url texto:corpo
+DEFINE_NATIVE_METHOD Sistema.Rede.ClienteHttp ExcluirAssincrono texto ClienteHttp::ExcluirAssincrono ASSINCRONO texto:url
+DEFINE_CLASS Sistema.Rede.SocketTcp NULO
+DEFINE_STATIC_NATIVE_METHOD Sistema.Rede.SocketTcp Conectar SocketTcp SocketTcp::Conectar texto:host inteiro:porta
+DEFINE_NATIVE_METHOD Sistema.Rede.SocketTcp Enviar vazio SocketTcp::Enviar texto:dados
+DEFINE_NATIVE_METHOD Sistema.Rede.SocketTcp Receber texto SocketTcp::Receber 
+DEFINE_NATIVE_METHOD Sistema.Rede.SocketTcp Fechar vazio SocketTcp::Fechar 
+DEFINE_NATIVE_METHOD Sistema.Rede.SocketTcp Conectado booleano SocketTcp::Conectado 
+DEFINE_CLASS Sistema.Rede.ServidorTcp NULO
+DEFINE_STATIC_NATIVE_METHOD Sistema.Rede.ServidorTcp Ouvir ServidorTcp ServidorTcp::Ouvir inteiro:porta
+DEFINE_NATIVE_METHOD Sistema.Rede.ServidorTcp Aceitar SocketTcp ServidorTcp::Aceitar 
+DEFINE_NATIVE_METHOD Sistema.Rede.ServidorTcp Fechar vazio ServidorTcp::Fechar 
+DEFINE_NATIVE_METHOD Sistema.Rede.ServidorTcp EstaAberto booleano ServidorTcp::EstaAberto 
+DEFINE_STATIC_CLASS Sistema.Texto.Codificacao
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Codificacao ParaBytes lista<inteiro> Codificacao::ParaBytes texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Codificacao ParaTexto texto Codificacao::ParaTexto lista<inteiro>:bytes
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Codificacao TamanhoBytes inteiro Codificacao::TamanhoBytes texto:valor
 DEFINE_CLASS Sistema.Texto.ConstrutorTexto NULO
 DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto Anexar vazio ConstrutorTexto::Anexar texto:valor
 DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto AnexarLinha vazio ConstrutorTexto::AnexarLinha texto:valor
 DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto ParaTexto texto ConstrutorTexto::ParaTexto 
 DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto Limpar vazio ConstrutorTexto::Limpar 
+DEFINE_NATIVE_METHOD Sistema.Texto.ConstrutorTexto Comprimento inteiro ConstrutorTexto::Comprimento 
 DEFINE_STATIC_CLASS Sistema.Texto.Json
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Serializar texto Json::Serializar objeto:obj
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json ValidarJson booleano Json::ValidarJson texto:json
 DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Formatar texto Json::Formatar texto:json
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Json Desserializar objeto Json::Desserializar texto:json
+DEFINE_CLASS Sistema.Texto.Regex NULO
+DEFINE_NATIVE_METHOD Sistema.Texto.Regex Corresponde booleano Regex::Corresponde texto:valor
+DEFINE_NATIVE_METHOD Sistema.Texto.Regex Localizar inteiro Regex::Localizar texto:valor
+DEFINE_NATIVE_METHOD Sistema.Texto.Regex Substituir texto Regex::Substituir texto:valor texto:substituto
+DEFINE_NATIVE_METHOD Sistema.Texto.Regex Dividir lista<texto> Regex::Dividir texto:valor
+DEFINE_NATIVE_METHOD Sistema.Texto.Regex Contar inteiro Regex::Contar texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Regex Escape texto Regex::Escape texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Regex EhValido booleano Regex::EhValido texto:padrao
+DEFINE_STATIC_CLASS Sistema.Texto.Texto
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Dividir lista<texto> Texto::Dividir texto:valor texto:separador
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto DividirLinhas lista<texto> Texto::DividirLinhas texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Juntar texto Texto::Juntar lista<texto>:partes texto:separador
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto RemoverEspacos texto Texto::RemoverEspacos texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto ParaMaiusculas texto Texto::ParaMaiusculas texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto ParaMinusculas texto Texto::ParaMinusculas texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Substituir texto Texto::Substituir texto:valor texto:antigo texto:substituto
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto ComecaCom booleano Texto::ComecaCom texto:valor texto:prefixo
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto TerminaCom booleano Texto::TerminaCom texto:valor texto:sufixo
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Contem booleano Texto::Contem texto:valor texto:trecho
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto VazioOuNulo booleano Texto::VazioOuNulo texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Tamanho inteiro Texto::Tamanho texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Subtexto texto Texto::Subtexto texto:valor inteiro:inicio inteiro:comprimento
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto IndiceDe inteiro Texto::IndiceDe texto:valor texto:trecho
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto UltimoIndiceDe inteiro Texto::UltimoIndiceDe texto:valor texto:trecho
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Inverter texto Texto::Inverter texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto PadEsquerda texto Texto::PadEsquerda texto:valor inteiro:largura texto:preenchimento
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto PadDireita texto Texto::PadDireita texto:valor inteiro:largura texto:preenchimento
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto ContarOcorrencias inteiro Texto::ContarOcorrencias texto:valor texto:trecho
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto EstaVazia booleano Texto::EstaVazia texto:valor
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Repete texto Texto::Repete texto:valor inteiro:vezes
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto Comparar inteiro Texto::Comparar texto:a texto:b
+DEFINE_STATIC_NATIVE_METHOD Sistema.Texto.Texto IgualIgnoreCase booleano Texto::IgualIgnoreCase texto:a texto:b
+DEFINE_CLASS Sistema.Threading.Mutex NULO
+DEFINE_NATIVE_METHOD Sistema.Threading.Mutex Entrar vazio Mutex::Entrar 
+DEFINE_NATIVE_METHOD Sistema.Threading.Mutex TentarEntrar booleano Mutex::TentarEntrar inteiro:milissegundos
+DEFINE_NATIVE_METHOD Sistema.Threading.Mutex Sair vazio Mutex::Sair 
+DEFINE_NATIVE_METHOD Sistema.Threading.Mutex EstaTravado booleano Mutex::EstaTravado 
+DEFINE_NATIVE_METHOD Sistema.Threading.Mutex Fechar vazio Mutex::Fechar 
+DEFINE_STATIC_CLASS Sistema.Threading.PoolTarefas
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.PoolTarefas ObterMaximoParalelismo inteiro PoolTarefas::ObterMaximoParalelismo 
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.PoolTarefas DefinirMaximoParalelismo vazio PoolTarefas::DefinirMaximoParalelismo inteiro:maximo
 DEFINE_STATIC_CLASS Sistema.Threading.Tarefa
-DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.Tarefa Atraso vazio Tarefa::Atraso inteiro:milissegundos
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.Tarefa Atraso vazio Tarefa::Atraso ASSINCRONO inteiro:milissegundos
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.Tarefa DeResultado objeto Tarefa::DeResultado ASSINCRONO objeto:valor
+DEFINE_STATIC_CLASS Sistema.Threading.Temporizador
+DEFINE_STATIC_NATIVE_METHOD Sistema.Threading.Temporizador Aguardar vazio Temporizador::Aguardar ASSINCRONO inteiro:milissegundos
 
 [BYTECODE]
 
-DEFINE_CLASS Sistema.Colecoes.Dicionario NULO Tamanho,tamanho|||
+DEFINE_CLASS Sistema.Aleatorio.Aleatorio NULO |||
+DEFINE_METHOD Sistema.Aleatorio.Aleatorio construtor vazio 0 
+DEFINE_METHOD Sistema.Aleatorio.Aleatorio construtor vazio 0 semente
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Ambiente
+DEFINE_STATIC_CLASS Sistema.Console
+DEFINE_STATIC_CLASS Sistema.Conversao
+DEFINE_STATIC_CLASS Sistema.Guid
+DEFINE_STATIC_CLASS Sistema.Matematica
+DEFINE_CLASS Sistema.Colecoes.Conjunto NULO Tamanho,itens,tamanho,capacidade|||
+DEFINE_METHOD Sistema.Colecoes.Conjunto construtor vazio 14 
+LOAD_VAR este
+LOAD_CONST_INT 4
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Conjunto construtor vazio 14 capacidadeInicial
+LOAD_VAR este
+LOAD_VAR capacidadeInicial
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Conjunto Adicionar booleano 29 T:item
+LOAD_VAR este
+LOAD_VAR item
+CALL_METHOD Contem 1
+JUMP_IF_FALSE 6
+LOAD_CONST_BOOL false
+RETURN
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR este
+GET_PROPERTY capacidade
+COMPARE_GE
+JUMP_IF_FALSE 14
+LOAD_VAR este
+CALL_METHOD RedimensionarArray 0
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR item
+SET_INDEX
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+ADD
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_BOOL true
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Conjunto Remover booleano 54 T:item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 52
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+LOAD_VAR item
+COMPARE_EQ
+JUMP_IF_FALSE 47
+LOAD_VAR i
+STORE_VAR j
+LOAD_VAR j
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+COMPARE_LT
+JUMP_IF_FALSE 38
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR j
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR j
+LOAD_CONST_INT 1
+ADD
+GET_INDEX
+SET_INDEX
+LOAD_VAR j
+LOAD_CONST_INT 1
+ADD
+STORE_VAR j
+JUMP 16
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_BOOL true
+RETURN
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 2
+LOAD_CONST_BOOL false
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Conjunto Contem booleano 23 T:item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 21
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+LOAD_VAR item
+COMPARE_EQ
+JUMP_IF_FALSE 16
+LOAD_CONST_BOOL true
+RETURN
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 2
+LOAD_CONST_BOOL false
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Conjunto EstaVazia booleano 5 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Conjunto Limpar vazio 6 
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Conjunto RedimensionarArray vazio 36 
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+LOAD_CONST_INT 2
+MUL
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+STORE_VAR novosItens
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 30
+LOAD_VAR novosItens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 13
+LOAD_VAR este
+LOAD_VAR novosItens
+SET_PROPERTY itens
+POP
+LOAD_CONST_NULL
+RETURN
+END_CLASS
+DEFINE_CLASS Sistema.Colecoes.Dicionario NULO Tamanho|||
 DEFINE_METHOD Sistema.Colecoes.Dicionario construtor vazio 4 
 LOAD_VAR este
 LOAD_CONST_INT 0
 SET_PROPERTY tamanho
 POP
-DEFINE_METHOD Sistema.Colecoes.Dicionario Adicionar vazio 2 TChave:chave TValor:valor
+END_CLASS
+DEFINE_CLASS Sistema.Colecoes.Fila NULO Tamanho,itens,tamanho,capacidade|||
+DEFINE_METHOD Sistema.Colecoes.Fila construtor vazio 14 
+LOAD_VAR este
+LOAD_CONST_INT 4
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Fila construtor vazio 14 capacidadeInicial
+LOAD_VAR este
+LOAD_VAR capacidadeInicial
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Fila Enfileirar vazio 23 T:item
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR este
+GET_PROPERTY capacidade
+COMPARE_GE
+JUMP_IF_FALSE 8
+LOAD_VAR este
+CALL_METHOD RedimensionarArray 0
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR item
+SET_INDEX
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+ADD
+SET_PROPERTY tamanho
+POP
 LOAD_CONST_NULL
 RETURN
-DEFINE_METHOD Sistema.Colecoes.Dicionario Obter TValor 2 TChave:chave
+DEFINE_METHOD Sistema.Colecoes.Fila Desenfileirar T 44 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_CONST_INT 0
+GET_INDEX
+STORE_VAR item
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+COMPARE_LT
+JUMP_IF_FALSE 35
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 13
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+SET_PROPERTY tamanho
+POP
+LOAD_VAR item
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Fila Espiar T 11 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_CONST_INT 0
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Fila EstaVazia booleano 5 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Fila Limpar vazio 6 
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
 LOAD_CONST_NULL
 RETURN
-DEFINE_METHOD Sistema.Colecoes.Dicionario ContemChave booleano 2 TChave:chave
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Colecoes.Dicionario Remover booleano 2 TChave:chave
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Colecoes.Dicionario Limpar vazio 2 
+DEFINE_METHOD Sistema.Colecoes.Fila RedimensionarArray vazio 36 
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+LOAD_CONST_INT 2
+MUL
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+STORE_VAR novosItens
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 30
+LOAD_VAR novosItens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 13
+LOAD_VAR este
+LOAD_VAR novosItens
+SET_PROPERTY itens
+POP
 LOAD_CONST_NULL
 RETURN
 END_CLASS
@@ -305,6 +851,116 @@ JUMP 2
 LOAD_CONST_INT 1
 NEGATE_INT
 RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista EstaVazia booleano 5 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista ObterPrimeiro T 11 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_CONST_INT 0
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista ObterUltimo T 14 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Inverter vazio 40 
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+STORE_VAR j
+LOAD_VAR i
+LOAD_VAR j
+COMPARE_LT
+JUMP_IF_FALSE 38
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+STORE_VAR temp
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR j
+GET_INDEX
+SET_INDEX
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR j
+LOAD_VAR temp
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+LOAD_VAR j
+LOAD_CONST_INT 1
+SUB
+STORE_VAR j
+JUMP 7
+LOAD_CONST_NULL
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Lista Recortar Lista 35 inteiro:inicio inteiro:fim
+NEW_OBJECT Sistema.Colecoes.Lista 0
+STORE_VAR sublista
+LOAD_VAR inicio
+LOAD_CONST_INT 0
+COMPARE_LT
+JUMP_IF_FALSE 8
+LOAD_CONST_INT 0
+STORE_VAR inicio
+LOAD_VAR fim
+LOAD_VAR este
+GET_LENGTH
+COMPARE_GT
+JUMP_IF_FALSE 16
+LOAD_VAR este
+GET_LENGTH
+STORE_VAR fim
+LOAD_VAR inicio
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR fim
+COMPARE_LT
+JUMP_IF_FALSE 33
+LOAD_VAR sublista
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+CALL_METHOD Adicionar 1
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 18
+LOAD_VAR sublista
+RETURN
 DEFINE_METHOD Sistema.Colecoes.Lista RedimensionarArray vazio 36 
 LOAD_VAR este
 LOAD_VAR este
@@ -343,32 +999,147 @@ POP
 LOAD_CONST_NULL
 RETURN
 END_CLASS
-DEFINE_STATIC_CLASS Sistema.Console
-DEFINE_STATIC_METHOD Sistema.Console EscreverLinha vazio 2 texto:mensagem
+DEFINE_CLASS Sistema.Colecoes.Pilha NULO Tamanho,itens,tamanho,capacidade|||
+DEFINE_METHOD Sistema.Colecoes.Pilha construtor vazio 14 
+LOAD_VAR este
+LOAD_CONST_INT 4
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Pilha construtor vazio 14 capacidadeInicial
+LOAD_VAR este
+LOAD_VAR capacidadeInicial
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+SET_PROPERTY itens
+POP
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
+DEFINE_METHOD Sistema.Colecoes.Pilha Empilhar vazio 23 T:item
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR este
+GET_PROPERTY capacidade
+COMPARE_GE
+JUMP_IF_FALSE 8
+LOAD_VAR este
+CALL_METHOD RedimensionarArray 0
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_VAR item
+SET_INDEX
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+ADD
+SET_PROPERTY tamanho
+POP
 LOAD_CONST_NULL
 RETURN
-DEFINE_STATIC_METHOD Sistema.Console Escrever vazio 2 texto:mensagem
+DEFINE_METHOD Sistema.Colecoes.Pilha Desempilhar T 19 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+SET_PROPERTY tamanho
+POP
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Pilha EspiarTopo T 14 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+JUMP_IF_FALSE 6
+RETURN
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 1
+SUB
+GET_INDEX
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Pilha EstaVazia booleano 5 
+LOAD_VAR este
+GET_LENGTH
+LOAD_CONST_INT 0
+COMPARE_EQ
+RETURN
+DEFINE_METHOD Sistema.Colecoes.Pilha Limpar vazio 6 
+LOAD_VAR este
+LOAD_CONST_INT 0
+SET_PROPERTY tamanho
+POP
 LOAD_CONST_NULL
 RETURN
-DEFINE_STATIC_METHOD Sistema.Console LerLinha texto 2 
+DEFINE_METHOD Sistema.Colecoes.Pilha RedimensionarArray vazio 36 
+LOAD_VAR este
+LOAD_VAR este
+GET_PROPERTY capacidade
+LOAD_CONST_INT 2
+MUL
+SET_PROPERTY capacidade
+POP
+LOAD_VAR este
+GET_PROPERTY capacidade
+NEW_ARRAY_OF_TYPE Classe("T")
+STORE_VAR novosItens
+LOAD_CONST_INT 0
+STORE_VAR i
+LOAD_VAR i
+LOAD_VAR este
+GET_LENGTH
+COMPARE_LT
+JUMP_IF_FALSE 30
+LOAD_VAR novosItens
+LOAD_VAR i
+LOAD_VAR este
+GET_PROPERTY itens
+LOAD_VAR i
+GET_INDEX
+SET_INDEX
+LOAD_VAR i
+LOAD_CONST_INT 1
+ADD
+STORE_VAR i
+JUMP 13
+LOAD_VAR este
+LOAD_VAR novosItens
+SET_PROPERTY itens
+POP
 LOAD_CONST_NULL
 RETURN
-DEFINE_STATIC_CLASS Sistema.Matematica
-DEFINE_STATIC_METHOD Sistema.Matematica Abs duplo 2 duplo:valor
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Matematica Max duplo 2 duplo:a duplo:b
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Matematica Min duplo 2 duplo:a duplo:b
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Matematica Potencia duplo 2 duplo:valorBase duplo:expoente
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Matematica RaizQuadrada duplo 2 duplo:valor
-LOAD_CONST_NULL
-RETURN
+END_CLASS
 DEFINE_CLASS Sistema.Data.Data NULO Ano,Mes,Dia,Hora,Minuto,Segundo|ano,mes,dia||
 DEFINE_METHOD Sistema.Data.Data construtor vazio 24 ano mes dia
 LOAD_VAR este
@@ -420,12 +1191,6 @@ LOAD_VAR este
 LOAD_VAR segundo
 SET_PROPERTY Segundo
 POP
-DEFINE_STATIC_METHOD Sistema.Data.Data Agora Data 2 
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Data.Data Hoje Data 2 
-LOAD_CONST_NULL
-RETURN
 DEFINE_METHOD Sistema.Data.Data ParaTexto texto 19 
 LOAD_VAR este
 GET_PROPERTY Dia
@@ -446,59 +1211,44 @@ LOAD_VAR este
 GET_PROPERTY Segundo
 CONCAT 11
 RETURN
-DEFINE_METHOD Sistema.Data.Data Formatar texto 2 texto:formato
-LOAD_CONST_NULL
-RETURN
 DEFINE_METHOD Sistema.Data.Data Igual booleano 1 Data:outra
 RETURN
 END_CLASS
+DEFINE_CLASS Sistema.Data.Horario NULO segundosTotais|segundos||
+DEFINE_METHOD Sistema.Data.Horario construtor vazio 4 segundos
+LOAD_VAR este
+LOAD_VAR segundos
+SET_PROPERTY segundosTotais
+POP
+DEFINE_METHOD Sistema.Data.Horario construtor vazio 16 dias horas minutos segundos
+LOAD_VAR este
+LOAD_VAR dias
+LOAD_CONST_INT 86400
+MUL
+LOAD_VAR horas
+LOAD_CONST_INT 3600
+MUL
+ADD
+LOAD_VAR minutos
+LOAD_CONST_INT 60
+MUL
+ADD
+LOAD_VAR segundos
+ADD
+SET_PROPERTY segundosTotais
+POP
+END_CLASS
+DEFINE_CLASS Sistema.Diagnostics.Cronometro NULO |||
+DEFINE_METHOD Sistema.Diagnostics.Cronometro construtor vazio 0 
+END_CLASS
 DEFINE_STATIC_CLASS Sistema.IO.Arquivo
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo LerTexto texto 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo EscreverTexto vazio 2 texto:caminho texto:conteudo
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo AdicionarTexto vazio 2 texto:caminho texto:conteudo
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo LerTextoAssincrono texto 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo EscreverTextoAssincrono vazio 2 texto:caminho texto:conteudo
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo AdicionarTextoAssincrono vazio 2 texto:caminho texto:conteudo
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo Existe booleano 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo Excluir vazio 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo Copiar vazio 2 texto:origem texto:destino
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Arquivo Mover vazio 2 texto:origem texto:destino
-LOAD_CONST_NULL
-RETURN
+DEFINE_STATIC_CLASS Sistema.IO.Caminho
 DEFINE_STATIC_CLASS Sistema.IO.Diretorio
-DEFINE_STATIC_METHOD Sistema.IO.Diretorio Existe booleano 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Diretorio Criar vazio 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Diretorio Excluir vazio 2 texto:caminho booleano:recursivo
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Diretorio ObterAtual texto 2 
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.IO.Diretorio DefinirAtual vazio 2 texto:caminho
-LOAD_CONST_NULL
-RETURN
+DEFINE_CLASS Sistema.IO.InformacaoArquivo NULO |||
+END_CLASS
+DEFINE_CLASS Sistema.IO.Leitor NULO |||
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Rede.Dns
 DEFINE_CLASS Sistema.Rede.ClienteHttp NULO BaseUrl|||
 DEFINE_METHOD Sistema.Rede.ClienteHttp construtor vazio 0 
 DEFINE_METHOD Sistema.Rede.ClienteHttp construtor vazio 4 baseUrl
@@ -506,57 +1256,29 @@ LOAD_VAR este
 LOAD_VAR baseUrl
 SET_PROPERTY BaseUrl
 POP
-DEFINE_METHOD Sistema.Rede.ClienteHttp Obter texto 2 texto:url
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Enviar texto 2 texto:url texto:corpo
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Atualizar texto 2 texto:url texto:corpo
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp Excluir texto 2 texto:url
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp ObterAssincrono texto 2 texto:url
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp EnviarAssincrono texto 2 texto:url texto:corpo
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp AtualizarAssincrono texto 2 texto:url texto:corpo
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Rede.ClienteHttp ExcluirAssincrono texto 2 texto:url
-LOAD_CONST_NULL
-RETURN
 END_CLASS
+DEFINE_CLASS Sistema.Rede.SocketTcp NULO |||
+DEFINE_METHOD Sistema.Rede.SocketTcp construtor vazio 0 
+END_CLASS
+DEFINE_CLASS Sistema.Rede.ServidorTcp NULO |||
+DEFINE_METHOD Sistema.Rede.ServidorTcp construtor vazio 0 
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Texto.Codificacao
 DEFINE_CLASS Sistema.Texto.ConstrutorTexto NULO |||
 DEFINE_METHOD Sistema.Texto.ConstrutorTexto construtor vazio 0 
-DEFINE_METHOD Sistema.Texto.ConstrutorTexto Anexar vazio 2 texto:valor
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Texto.ConstrutorTexto AnexarLinha vazio 2 texto:valor
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Texto.ConstrutorTexto ParaTexto texto 2 
-LOAD_CONST_NULL
-RETURN
-DEFINE_METHOD Sistema.Texto.ConstrutorTexto Limpar vazio 2 
-LOAD_CONST_NULL
-RETURN
 END_CLASS
 DEFINE_STATIC_CLASS Sistema.Texto.Json
-DEFINE_STATIC_METHOD Sistema.Texto.Json Serializar texto 2 objeto:obj
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Texto.Json ValidarJson booleano 2 texto:json
-LOAD_CONST_NULL
-RETURN
-DEFINE_STATIC_METHOD Sistema.Texto.Json Formatar texto 2 texto:json
-LOAD_CONST_NULL
-RETURN
+DEFINE_CLASS Sistema.Texto.Regex NULO padrao|padrao||
+DEFINE_METHOD Sistema.Texto.Regex construtor vazio 4 padrao
+LOAD_VAR este
+LOAD_VAR padrao
+SET_PROPERTY padrao
+POP
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Texto.Texto
+DEFINE_CLASS Sistema.Threading.Mutex NULO |||
+DEFINE_METHOD Sistema.Threading.Mutex construtor vazio 0 
+END_CLASS
+DEFINE_STATIC_CLASS Sistema.Threading.PoolTarefas
 DEFINE_STATIC_CLASS Sistema.Threading.Tarefa
-DEFINE_STATIC_METHOD Sistema.Threading.Tarefa Atraso vazio 2 inteiro:milissegundos
-LOAD_CONST_NULL
-RETURN
+DEFINE_STATIC_CLASS Sistema.Threading.Temporizador
